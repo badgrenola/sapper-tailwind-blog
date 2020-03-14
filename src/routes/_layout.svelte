@@ -2,21 +2,11 @@
 <!-- https://github.com/sveltejs/sapper/issues/703 -->
 
 <script>
-	import Nav from '../components/Nav.svelte';
 	import TailwindCSS from '../TailwindCSS.svelte';
-
-	export let segment;
 </script>
 
-<style>
-	main {
-		@apply bg-red-800;
-	}
-</style>
-
 <TailwindCSS />
-<Nav {segment}/>
 
-<main>
+<main class="min-h-screen bg-red-900 font-sans">
 	<slot></slot>
 </main>
