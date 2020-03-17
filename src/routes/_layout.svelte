@@ -4,12 +4,18 @@
 <script>
 	import TailwindCSS from '../TailwindCSS.svelte';
 	import Header from '../components/header.svelte';
+	import Footer from '../components/footer.svelte';
 	export var segment;
 </script>
 
 <TailwindCSS />
-<Header />
 
-<main class="container mx-auto">
-	<slot></slot>
-</main>
+<div class="container mx-auto flex flex-col min-h-screen">
+	<Header />
+
+	<main class="flex-grow">
+		<slot></slot>
+	</main>
+
+	<Footer />
+</div>
