@@ -3,13 +3,16 @@
   "description": "TODO",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "dev": "concurrently 'sapper dev' 'npm:watch:tailwind'",
+    "build": "npm run build:tailwind && sapper build --legacy",
+    "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
+    "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/index.css",
+    "export": "npm run build:tailwind && sapper export --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "publish": "npm run export && rsync --cvs-exclude -r __sapper__/export/client ../badgrenola.github.io"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -26,8 +29,10 @@
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "@rollup/plugin-replace": "^2.2.0",
+    "concurrently": "^5.1.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
     "postcss-load-config": "^2.1.0",
     "rollup": "^1.20.0",
     "rollup-plugin-babel": "^4.0.2",

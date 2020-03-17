@@ -2,13 +2,10 @@
 <!-- https://github.com/sveltejs/sapper/issues/703 -->
 
 <script>
-	import TailwindCSS from '../TailwindCSS.svelte';
 	import Header from '../components/header.svelte';
 	import Footer from '../components/footer.svelte';
 	export var segment;
 </script>
-
-<TailwindCSS />
 
 <div class="container mx-auto flex flex-col min-h-screen">
 	<Header />
