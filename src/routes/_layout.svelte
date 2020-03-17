@@ -3,10 +3,13 @@
 
 <script>
 	import TailwindCSS from '../TailwindCSS.svelte';
+	import Header from '../components/header.svelte';
+	export var segment;
 </script>
 
 <TailwindCSS />
+<Header />
 
-<main class="min-h-screen bg-red-900 font-sans">
+<main class="container mx-auto">
 	<slot></slot>
 </main>
