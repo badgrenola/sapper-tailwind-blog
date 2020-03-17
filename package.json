@@ -4,15 +4,15 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "concurrently 'sapper dev' 'npm:watch:tailwind'",
-    "build": "npm run build:tailwind && sapper build --legacy",
+    "build": "npm run build:tailwind && sapper build",
     "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
     "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/index.css",
-    "export": "npm run build:tailwind && sapper export --legacy",
+    "export": "npm run build:tailwind && sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "publish": "npm run export && rsync --cvs-exclude -r __sapper__/export/client ../badgrenola.github.io"
+    "publish": "npm run export && rsync --cvs-exclude --exclude 'client' -r __sapper__/export/ ../badgrenola.github.io"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -38,7 +38,7 @@
     "rollup": "^1.20.0",
     "rollup-plugin-babel": "^4.0.2",
     "rollup-plugin-svelte": "^5.0.1",
-    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-terser": "^5.3.0",
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",
     "svelte-preprocess": "^3.5.0",
