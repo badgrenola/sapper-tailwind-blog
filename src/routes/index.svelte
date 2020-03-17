@@ -86,7 +86,7 @@
         data.
       </p>
       <p class="pt-4">
-        I love making data more accessible, and making it flow between apps in occasionally odd but incredibly useful ways.
+        I love making data more accessible, and getting it to flow between apps in occasionally odd but incredibly useful ways.
       </p>
       <p class="pt-4">
         You can check out some of my personal projects, or read some of my
@@ -101,7 +101,7 @@
           </span>
       </p>
       <p class="pt-4">
-        Or if you've got a project in mind,
+        Or if you've got a specific project in mind,
         <a class="font-semibold hover:underline text-pink-600 sm:text-pink-700 hover:text-pink-600" href="mailto:hello@mattbrealey.com">why not say hello?</a>
       </p>
     </div>
