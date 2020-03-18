@@ -2,7 +2,10 @@
 	<title>Matt Brealey</title>
 </svelte:head>
 
-<svelte:window on:resize={updateHandRotation}/>
+<svelte:window on:resize={() => {
+  updateHandRotation()
+  updateWaveTransformOrigin()
+}}/>
 <script>
   import { onMount } from 'svelte'
 
@@ -15,6 +18,66 @@
   let handElement = null
   let projectsElement = null
   let menuButton = null
+
+  //Store the min/max wave angle, and store the current wave amount
+  // let waveTransformOriginDesktop = [24, 22]
+  let waveElement = null;
+  let waveTransformOrigin = ['center', 'center']
+  let waveMinAngle = 0
+  let waveMaxAngle = 80
+  let waveAmount = waveMinAngle
+  let waveDuration = 0.3 // the time in seconds it takes to wave in a single direction
+  let waveRepeat = 2 // this number of waves in a wave group
+  let waveGroupDelay = 10 // the delay in second between wave groups
+
+  function wavingWithDelay() {
+    //Calculate the time in s it takes to complete a wave group
+    const waveGroupDuration = waveDuration * 2 * waveRepeat
+
+    //Repeat the wave group with the correct delay and return the interval so it can be cleaned up
+    return setInterval(() => {
+      waveGroup()
+    }, waveGroupDuration + waveGroupDelay * 1000)
+  }
+
+  function waveGroup() {
+
+    //Keep track of how many waves we've already done
+    let waveCount = 0
+
+    //Repeat a single wave...
+    const waveGroup = setInterval(() => {
+      singleWave()
+
+      //Increase the waveCount
+      waveCount += 1
+
+      //If we've completed the right number of waves, stop waving
+      if (waveCount === waveRepeat) { clearInterval(waveGroup) }
+    }, waveDuration * 2 * 1000) 
+  }
+
+  function singleWave() {
+    //Set the wave amount to max
+    waveAmount = waveMaxAngle
+
+    //Start a time out that will reset the wave amount
+    setTimeout(() => { waveAmount = waveMinAngle }, waveDuration * 1000)
+  }
+
+  function updateWaveTransformOrigin() {
+    //Get out if wave element wasn't found
+    if (!waveElement) return;
+
+    //Get the rect
+    let handRect = waveElement.getBoundingClientRect()
+    
+    //Set the wave transform origin based upon rect
+    waveTransformOrigin = [
+      handRect.width * 0.77,
+      handRect.height * 0.85
+    ]
+  }
 
   function updateHandRotation() {
     //Get out if either element doesn't exist
@@ -41,22 +104,32 @@
 
   //On mount, start the rotation + return a cleanup function
   onMount(async () => {
-    //Setup the timer
-    const interval = setInterval(() => {
+    //Setup the text update timer
+    const textUpdateTimer = setInterval(() => {
       dataTypeIndex = dataTypeIndex == (dataTypes.length - 1) ? 0 : dataTypeIndex + 1;
     }, 1500)
+
+    //Setup the hand waving, and store the interval
+    waveElement = document.getElementById("wavingHand")  
+    const waveInterval = wavingWithDelay()
 
     //Store the hand/projects menu elements
     handElement = document.getElementById("pointingHand");
     projectsElement = document.getElementById("projectsMenuItem");
     menuButton = document.getElementById("menuButton");
 
-    //Update the initial hand rotation
+    //Initialise the hand rotation
     updateHandRotation()
 
+    //Initialise the hand wave transform origin
+    updateWaveTransformOrigin()
+
     return () => {
-      //Clear the timer on unmount
-      clearInterval(interval);
+      //Clear the text update timer on unmount
+      clearInterval(textUpdateTimer);
+
+      //Clear the waving timer on unmount
+      clearInterval(waveInterval);
     }
   })
 
@@ -75,7 +148,12 @@
     </div>
   </div>
   <div class="w-auto sm:w-4/5 font-light">
-    <h1 class="text-3xl text-pink-600 font-thin sm:leading-6">Hello 👋</h1>
+    <h1 class="text-3xl text-pink-600 font-thin sm:leading-6">
+      Hello
+      <span 
+        id="wavingHand"
+        style="display:inline-block; transform:rotate({waveAmount}deg); transform-origin: {waveTransformOrigin[0]}px {waveTransformOrigin[1]}px; transition: transform {waveDuration}s ease-in-out;">👋</span>
+    </h1>
     <div class="mt-2 lg:mt-6">
       <p class="pt-4 sm:hidden">I'm Matt.</p>
       <p class="pt-4">
