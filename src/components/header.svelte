@@ -22,8 +22,8 @@
         </div>
     </div>
     <div class="px-2 pt-2 pb-4 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
-        <a href="#" class="block mt-1 px-2 text-pink-600 font-semibold text-center hover:text-pink-500 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm">Hello 👋</a>
-        <a href="#" id="projectsMenuItem" class="block mt-1 px-2 text-pink-600 font-semibold text-center hover:text-pink-500 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm">Projects</a>
-        <a href="#" class="block mt-1 px-2 text-pink-600 font-semibold text-center hover:text-pink-500 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm">Writing</a>
+        <a href="/" class="block mt-1 px-2 text-pink-600 font-semibold text-center hover:text-pink-500 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm">Hello</a>
+        <a href="/about" id="projectsMenuItem" class="block mt-1 px-2 text-pink-600 font-semibold text-center hover:text-pink-500 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm">Projects</a>
+        <a href="/blog" class="block mt-1 px-2 text-pink-600 font-semibold text-center hover:text-pink-500 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm">Writing</a>
     </div>
 </header>
