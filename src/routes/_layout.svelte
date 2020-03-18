@@ -7,7 +7,7 @@
 	export var segment;
 </script>
 
-<div class="container mx-auto flex flex-col min-h-screen">
+<div class="container mx-auto flex flex-col min-h-full">
 	<Header />
 
 	<main class="flex-grow">
