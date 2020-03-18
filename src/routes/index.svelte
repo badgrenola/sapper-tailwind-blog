@@ -135,53 +135,40 @@
 
 </script>
 
-<div class="font-normal text-gray-900 text-base sm:text-base p-6 flex lg:p-8">
-  <div class="w-1/5 mr-6 text-sm hidden sm:block">
-    <div class="flex flex-col">
-      <h2 class="text-pink-600 font-semibold">Latest Projects</h2>
-      <a href="#" class="hover:text-pink-500 hover:underline mt-2">Areo Browser</a>
-      <a href="#" class="hover:text-pink-500 hover:underline">Juno Observer</a>
-    </div>
-    <div class="flex flex-col mt-8">
-      <h2 class="text-pink-600 font-semibold">Latest Articles</h2>
-      <a href="#" class="hover:text-pink-500 hover:underline mt-2">Hello Motivation</a>
-    </div>
-  </div>
-  <div class="w-auto sm:w-4/5 font-light">
-    <h1 class="text-3xl text-pink-600 font-thin sm:leading-6">
-      Hello
-      <span 
-        id="wavingHand"
-        style="display:inline-block; transform:rotate({waveAmount}deg); transform-origin: {waveTransformOrigin[0]}px {waveTransformOrigin[1]}px; transition: transform {waveDuration}s ease-in-out;">👋</span>
-    </h1>
-    <div class="mt-2 lg:mt-6">
-      <p class="pt-4 sm:hidden">I'm Matt.</p>
-      <p class="pt-4">
-        <span class="hidden sm:inline-block">I'm Matt.</span> And I can help you do
-        <span class="font-semibold">awesome</span>
-        things with your
-        <span class="font-semibold text-pink-600">{dataTypes[dataTypeIndex]}</span>
-        data.
-      </p>
-      <p class="pt-4">
-        I love making data more accessible, and getting it to flow between apps in occasionally odd but incredibly useful ways.
-      </p>
-      <p class="pt-4">
-        You can check out some of my personal projects, or read some of my
-        <span class="text-gray-700 italic">(hopefully soon-to-be numerous)</span>
-        short articles by clicking the links
-        <span class="hidden sm:inline-block">
-          up the top over there
+<div>
+  <h1 class="text-3xl text-pink-600 font-thin sm:leading-6">
+    Hello
+    <span 
+      id="wavingHand"
+      style="display:inline-block; transform:rotate({waveAmount}deg); transform-origin: {waveTransformOrigin[0]}px {waveTransformOrigin[1]}px; transition: transform {waveDuration}s ease-in-out;">👋</span>
+  </h1>
+  <div class="mt-2 lg:mt-6">
+    <p class="pt-4 sm:hidden">I'm Matt.</p>
+    <p class="pt-4">
+      <span class="hidden sm:inline-block">I'm Matt.</span> And I can help you do
+      <span class="font-semibold">awesome</span>
+      things with your
+      <span class="font-semibold text-pink-600">{dataTypes[dataTypeIndex]}</span>
+      data.
+    </p>
+    <p class="pt-4">
+      I love making data more accessible, and getting it to flow between apps in occasionally odd but incredibly useful ways.
+    </p>
+    <p class="pt-4">
+      You can check out some of my personal projects, or read some of my
+      <span class="text-gray-700 italic">(hopefully soon-to-be numerous)</span>
+      short articles by clicking the links
+      <span class="hidden sm:inline-block">
+        up the top over there
+      </span>
+      <span class="sm:hidden">in the dropdown menu up there</span>
+      <span id="pointingHand" style="display:inline-block; transform:rotate({handRotation}deg);">
+          👆
         </span>
-        <span class="sm:hidden">in the dropdown menu up there</span>
-        <span id="pointingHand" style="display:inline-block; transform:rotate({handRotation}deg);">
-            👆
-          </span>
-      </p>
-      <p class="pt-4">
-        Or if you've got a specific project in mind,
-        <a class="font-semibold hover:underline text-pink-600 sm:text-pink-700 hover:text-pink-600" href="mailto:hello@mattbrealey.com">why not say hello?</a>
-      </p>
-    </div>
+    </p>
+    <p class="pt-4">
+      Or if you've got a specific project in mind,
+      <a class="font-semibold hover:underline text-pink-600 sm:text-pink-700 hover:text-pink-600" href="mailto:hello@mattbrealey.com">why not say hello?</a>
+    </p>
   </div>
 </div>
