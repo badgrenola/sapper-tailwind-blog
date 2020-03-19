@@ -2,10 +2,14 @@
     //Grab the active route
     import { stores } from '@sapper/app'
     const { page } = stores()
-    let isIndex; // TODO : svelte should declare these for us in the $: statement, but I'm getting undeclared errors 
+
+    //Match the current route to the available options
+    // TODO : svelte should declare these vars for us in the $: statement, but I'm getting undeclared errors
+    let isIndex;
     let isProjects;
     let isWriting;
     $: {
+        //Dynamically update the vars to match the current route
         isIndex = $page.path === "/"
         isProjects = $page.path === "/projects"
         isWriting = $page.path === "/writing"
@@ -13,6 +17,17 @@
 
     //Store the mobile menu open state
     var isOpen = false;
+
+    //Close the menu on route change
+    let oldRoute = $page.path
+    $: {
+        //If the route has changed
+        if (oldRoute !== $page.path) { 
+            //Store the new route, and close the menu
+            oldRoute = $page.path
+            isOpen = false
+        }
+    }
 
 </script>
 
@@ -33,7 +48,7 @@
     </div>
     <div class="px-2 pt-2 pb-4 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
         <a href="/" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isIndex ? " opacity-100 underline cursor-default" : ""}">Hello</a>
-        <a href="/about" id="projectsMenuItem" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isProjects ? " opacity-100 underline cursor-default" : ""}">Projects</a>
-        <a href="/blog" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isWriting ? " opacity-100 underline cursor-default" : ""}">Writing</a>
+        <a href="/projects" id="projectsMenuItem" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isProjects ? " opacity-100 underline cursor-default" : ""}">Projects</a>
+        <a href="/writing" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isWriting ? " opacity-100 underline cursor-default" : ""}">Writing</a>
     </div>
 </header>
