@@ -17,7 +17,7 @@ a.colorLink {
 }
 
 a.headerLink { 
-    @apply block font-semibold text-center h-8;
+    @apply block font-semibold text-center h-12 flex flex-col justify-center align-middle;
 }
 
 a.headerLinkActive {
@@ -30,7 +30,7 @@ a:hover {
 
 @screen sm {
     a.headerLink {
-        @apply mt-0 ml-2 font-normal text-sm px-2 h-auto;
+        @apply mt-0 ml-2 font-normal text-sm px-2;
     }
 }
 
