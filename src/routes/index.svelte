@@ -8,6 +8,7 @@
 }}/>
 <script>
   import { onMount } from 'svelte'
+  import PageLayout from '../components/pageLayout.svelte'
 
   //Setup the data types for the rotating text + store the current index
   let dataTypes = ["VFX", "design", "space"]
@@ -135,16 +136,18 @@
 
 </script>
 
-<div>
-  <h1 class="text-3xl text-pink-600 font-thin sm:leading-6">
+<PageLayout>
+  <span slot="title">
     Hello
     <span 
       id="wavingHand"
-      style="display:inline-block; transform:rotate({waveAmount}deg); transform-origin: {waveTransformOrigin[0]}px {waveTransformOrigin[1]}px; transition: transform {waveDuration}s ease-in-out;">👋</span>
-  </h1>
-  <div class="mt-2 lg:mt-6">
-    <p class="pt-4 sm:hidden">I'm Matt.</p>
-    <p class="pt-4">
+      style="display:inline-block; transform:rotate({waveAmount}deg); transform-origin: {waveTransformOrigin[0]}px {waveTransformOrigin[1]}px; transition: transform {waveDuration}s ease-in-out;"
+    >👋</span>
+  </span>
+
+  <span slot = "content">
+    <p class="pb-4 sm:hidden">I'm Matt.</p>
+    <p class="">
       <span class="hidden sm:inline-block">I'm Matt.</span> And I can help you do
       <span class="font-semibold">awesome</span>
       things with your
@@ -170,5 +173,5 @@
       Or if you've got a specific project in mind,
       <a class="font-semibold hover:underline text-pink-600 sm:text-pink-700 hover:text-pink-600" href="mailto:hello@mattbrealey.com">why not say hello?</a>
     </p>
-  </div>
-</div>
+  </span>
+</PageLayout>
