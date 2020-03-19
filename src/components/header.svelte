@@ -47,8 +47,8 @@
         </div>
     </div>
     <div class="px-2 pt-2 pb-4 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
-        <a href="/" class="headerLink {isIndex && "headerLinkActive"}">Hello</a>
-        <a href="/projects" id="projectsMenuItem" class="headerLink {isProjects && "headerLinkActive"}">Projects</a>
-        <a href="/writing" class="headerLink {isWriting && "headerLinkActive"}">Writing</a>
+        <a href="/" class="headerLink colorLink {isIndex && "headerLinkActive"}">Hello</a>
+        <a href="/projects" id="projectsMenuItem" class="headerLink colorLink {isProjects && "headerLinkActive"}">Projects</a>
+        <a href="/writing" class="headerLink colorLink {isWriting && "headerLinkActive"}">Writing</a>
     </div>
 </header>
