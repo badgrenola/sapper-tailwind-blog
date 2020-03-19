@@ -29,7 +29,7 @@
   let waveAmount = waveMinAngle
   let waveDuration = 0.3 // the time in seconds it takes to wave in a single direction
   let waveRepeat = 2 // this number of waves in a wave group
-  let waveGroupDelay = 10 // the delay in second between wave groups
+  let waveGroupDelay = 8 // the delay in second between wave groups
 
   function wavingWithDelay() {
     //Calculate the time in s it takes to complete a wave group
