@@ -1,9 +1,9 @@
 <footer class="text-center text-xs text-gray-500 p-4">
     <p>This site is currently being written using
-    <a href="#" class="text-pink-600 hover:text-pink-500 hover:underline">Sapper</a>
+    <a href="#" class="colorLink">Sapper</a>
     and
-    <a href="#" class="text-pink-600 hover:text-pink-500 hover:underline">TailwindCSS</a>
+    <a href="#" class="colorLink">TailwindCSS</a>
     , and is entirely
-    <a href="#" class="text-pink-600 hover:text-pink-500 hover:underline">open source</a>
+    <a href="#" class="colorLink">open source</a>
     👍</p>
 </footer> 

@@ -47,8 +47,8 @@
         </div>
     </div>
     <div class="px-2 pt-2 pb-4 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
-        <a href="/" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isIndex ? " opacity-100 underline cursor-default" : ""}">Hello</a>
-        <a href="/projects" id="projectsMenuItem" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isProjects ? " opacity-100 underline cursor-default" : ""}">Projects</a>
-        <a href="/writing" class="block text-pink-500 opacity-75 font-semibold text-center hover:opacity-100 hover:underline sm:mt-0 sm:ml-2 sm:font-normal sm:text-sm sm:px-2 h-8 sm:h-auto {isWriting ? " opacity-100 underline cursor-default" : ""}">Writing</a>
+        <a href="/" class="headerLink {isIndex && "headerLinkActive"}">Hello</a>
+        <a href="/projects" id="projectsMenuItem" class="headerLink {isProjects && "headerLinkActive"}">Projects</a>
+        <a href="/writing" class="headerLink {isWriting && "headerLinkActive"}">Writing</a>
     </div>
 </header>

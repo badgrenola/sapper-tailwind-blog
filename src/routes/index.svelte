@@ -171,7 +171,7 @@
     </p>
     <p class="pt-4">
       Or if you've got a specific project in mind,
-      <a class="font-semibold hover:underline text-pink-600 sm:text-pink-700 hover:text-pink-600" href="mailto:hello@mattbrealey.com">why not say hello?</a>
+      <a class="font-semibold colorLink" href="mailto:hello@mattbrealey.com">why not say hello?</a>
     </p>
   </span>
 </PageLayout>
