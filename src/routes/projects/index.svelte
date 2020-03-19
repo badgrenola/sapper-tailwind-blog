@@ -1,22 +1,7 @@
-<script context="module">
-	export function preload({ params, query }) {
-		return this.fetch(`projects.json`).then(r => r.json()).then(posts => {
-			return { posts };
-		});
-	}
-</script>
-
 <script>
 	import PageLayout from '../../components/pageLayout.svelte'
-	export let posts;
+	import { projects } from '../../stores/projectStore.js'
 </script>
-
-<style>
-	ul {
-		margin: 0 0 1em 0;
-		line-height: 1.5;
-	}
-</style>
 
 <svelte:head>
 	<title>Projects // Matt Brealey</title>
@@ -24,13 +9,17 @@
 
 <PageLayout>
 	<h1 slot="title">Projects</h1>
-	<ul slot="content">
-		{#each posts as post}
-			<!-- we're using the non-standard `rel=prefetch` attribute to
-					tell Sapper to load the data for the page as soon as
-					the user hovers over the link or taps it, instead of
-					waiting for the 'click' event -->
-			<li><a rel='prefetch' href='projects/{post.slug}'>{post.title}</a></li>
-		{/each}
-	</ul>
+
+	<div slot="content">
+		<!-- https://tailwindgrids.com/#/ -->
+		<div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-4">
+
+			{#each $projects as project}
+			<div class="my-2 px-2 w-full overflow-hidden sm:my-4 sm:px-4 sm:w-full md:w-1/2 lg:w-1/3">
+			  {project.title}
+			</div>
+			{/each}
+
+		</div>
+	</div>
 </PageLayout>
