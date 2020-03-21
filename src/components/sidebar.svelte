@@ -1,20 +1,23 @@
 <script>
   import { projects } from '../stores/projectStore.js'
 
-  //Set the maximum number of projects to display
+  //Get the 5 latest projects
   let maxProjects = 5
+  let latestProjects = $projects.sort((a, b) => {
+    if (a.id > b.id) return 1
+    return -1
+  }).slice(Math.max($projects.length - maxProjects, 0))
+
 </script>
 
 <sidebar class="w-1/5 mr-6 text-sm hidden sm:block">
   <div class="flex flex-col">
     <h2 class="text-pink-600 font-semibold leading-none">Latest Projects</h2>
     <ul class="mt-2">
-      {#each $projects as project, i}
-        {#if i < maxProjects}
-          <li>
-            <a href="{project.path}" class="">{project.title}</a>
-          </li>
-        {/if}
+      {#each latestProjects as project}
+        <li>
+          <a href="{project.path}" class="">{project.title}</a>
+        </li>
       {/each}
     </ul>
   </div>
