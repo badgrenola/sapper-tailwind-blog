@@ -1,6 +1,24 @@
 <script>
     import PageLayout from '../../components/pageLayout.svelte'
+    import { projects } from '../../stores/projectStore.js'
+
+    //Define the features for the feature grid
+    let features = [
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
+        {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"}
+    ]
+
+    //Get the prev/next projects for display at the bottom of the page
+    let currentProjectID = 1
+    let prevProject = $projects.find(project => project.id == currentProjectID - 1)
+    let nextProject = $projects.find(project => project.id == currentProjectID + 1)
 </script>
+
 
 <PageLayout>
     <span slot="title">Areo Browser</span>
@@ -24,10 +42,43 @@
         <h2 class="mt-6 text-xl text-pink-600 font-light">Features</h2>
 		<!-- https://tailwindgrids.com/#/ -->
 		<div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-4">
-            <div class="my-2 mb-4 px-2 w-full overflow-hidden sm:my-4 sm:px-4 sm:w-full md:w-1/2 xl:w-1/3">               
-            </div>
+            {#each features as feature}
+                <div class="my-2 mb-4 px-2 w-full overflow-hidden sm:my-4 sm:px-4 sm:w-full md:w-1/2 xl:w-1/3">
+                    <div class="flex flex-col relative h-full cursor-pointer">
+                        <div class="relative pb-2/3 rounded-md overflow-hidden">
+                            <img class="absolute h-full w-full object-cover" src={feature.image} alt={feature.desc} />
+                        </div>
+                        <div class="font-semibold mt-1 text-gray-900 group-hover:text-pink-500">{feature.title}</div>
+                        <span class="text-sm text-gray-800">{feature.desc}</span>
+                    </div>
+                </div>
+            {/each}
         </div>
+
+        <h2 class="mt-6 text-xl text-pink-600 font-light">Todo List</h2>
+        <ul class="list-disc">
+            <li class="ml-6">Model downloads at any resolution</li>
+            <li class="ml-6">3D-printable model downloads at any resolution</li>
+            <li class="ml-6">Ability to save an image of the current view, with a transparent background</li>
+            <li class="ml-6">Ability to share a link to the current model + camera angle</li>
+            <li class="ml-6">Realistic Martian lighting based upon location + a given time </li>
+        </ul>
         
         <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
+
+        <div class="flex justify-between mt-6">
+            <div class="flex-1 pr-6">
+                {#if prevProject}
+                    <h3 class="text-sm text-gray-600">Prev Project</h3>
+                    <a href={prevProject.path} class="colorLink">{prevProject.title}</a>
+                {/if}
+            </div>
+            <div class="flex-1 text-right pl-6">
+                {#if nextProject}
+                    <h3 class="text-sm text-gray-600">Next Project</h3>
+                    <a href={nextProject.path} class="colorLink">{nextProject.title}</a>
+                {/if}
+            </div>
+        </div>
 	</div>
 </PageLayout>
