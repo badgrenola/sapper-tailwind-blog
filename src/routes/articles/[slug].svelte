@@ -26,7 +26,7 @@
 
 <PageLayout>
     <span slot="title">{article.metadata.title}</span>
-    <section slot="content">
+    <section slot="content" class="markdown">
         {@html article.html}
     </section>
 </PageLayout>    
