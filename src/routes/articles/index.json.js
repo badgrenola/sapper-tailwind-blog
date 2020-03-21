@@ -7,7 +7,8 @@ export function get(req, res) {
 		const articles = getArticles().map(article => ({
 			title: article.metadata.title,
 			slug: article.slug,
-			image: article.metadata.image
+			smallImage: article.metadata.smallImage,
+			desc: article.metadata.desc
 		}));
 
 		contents = JSON.stringify(articles);

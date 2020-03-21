@@ -1,7 +1,8 @@
 ---
 title: How to use Sapper
 pubdate: 2018-07-21
-image: Gnomes_plan.png
+smallImage: Gnomes_plan.png
+desc: How to actually use the Sapper platform
 ---
 
 ## Step one

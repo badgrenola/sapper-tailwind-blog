@@ -1,7 +1,8 @@
 ---
 title: Stress Test
 pubdate: 2020-03-21
-image: Gnomes_plan.png
+smallImage: Gnomes_plan.png
+desc: Stress testing the markdown conversion
 ---
 
 ---
