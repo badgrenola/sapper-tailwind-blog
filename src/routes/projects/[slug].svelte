@@ -67,13 +67,13 @@
                 <div class="flex-1 pr-6">
                     {#if prevProject}
                         <h3 class="text-sm text-gray-600">Prev Project</h3>
-                        <a href="./projects/{prevProject.slug}" class="colorLink">{prevProject.title}</a>
+                        <a href="./projects/{prevProject.slug}" class="colorLink">{prevProject.name}</a>
                     {/if}
                 </div>
                 <div class="flex-1 text-right pl-6">
                     {#if nextProject}
                         <h3 class="text-sm text-gray-600">Next Project</h3>
-                        <a href="./projects/{nextProject.slug}" class="colorLink">{nextProject.title}</a>
+                        <a href="./projects/{nextProject.slug}" class="colorLink">{nextProject.name}</a>
                     {/if}
                 </div>
             </div>
