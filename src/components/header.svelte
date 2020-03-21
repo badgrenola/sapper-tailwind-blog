@@ -34,7 +34,9 @@
 <header class="sm:flex sm:justify-between sm:items-center sm:p-4 lg:p-8">
     <div class="flex items-center justify-between px-4 py-4 sm:p-0">
         <div class="">
-            <img class="h-12 rounded-full" src="profile.jpg" alt="A picture of Matt Brealey's head" />
+            <a href="/" alt="Home">
+                <img class="h-12 rounded-full" src="profile.jpg" alt="A picture of Matt Brealey's head" />
+            </a>
         </div>
         <div class="sm:hidden">
             <button type="button" id="menuButton" class="block text-black hover:text-gray-800 focus:text-gray-800 focus:outline-none pr-2" on:click={() => {isOpen = !isOpen}}>
