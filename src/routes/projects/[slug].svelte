@@ -30,7 +30,7 @@
                 <img class="rounded-md object-cover" src={project.largeImage} alt={project.name} />
             </a>
 
-            <h2 class="mt-6 text-xl text-pink-600 font-light">Links</h2>
+            <h2 class="mt-6 text-xl text-pink-600 font-light">{project.links.length > 1 ? "Links" : "Link"}</h2>
             {#each project.links as link}
                 <a href={link} target="_blank" rel="noopener noreferrer">{link.split("//")[1]}</a>
             {/each}
@@ -54,12 +54,14 @@
                 {/each}
             </div>
 
-            <h2 class="mt-6 text-xl text-pink-600 font-light">Todo List</h2>
-            <ul class="list-disc">
-                {#each project.todos as todo}
-                    <li class="ml-6">{todo}</li>
-                {/each}
-            </ul>
+            {#if project.todos.length}
+                <h2 class="mt-6 text-xl text-pink-600 font-light">Todo List</h2>
+                <ul class="list-disc">
+                    {#each project.todos as todo}
+                        <li class="ml-6">{todo}</li>
+                    {/each}
+                </ul>
+            {/if}
             
             <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
 
