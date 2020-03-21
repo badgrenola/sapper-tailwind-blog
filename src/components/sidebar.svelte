@@ -9,7 +9,7 @@
   let latestProjects = $projects.sort((a, b) => {
     if (a.id > b.id) return 1
     return -1
-  }).slice(Math.max($projects.length - maxProjects, 0))
+  }).slice(Math.max($projects.length - maxProjects, 0)).reverse()
 
   //Get the 5 latest articles - articles are automatically sorted by date
   let maxArticles = 5
@@ -33,7 +33,9 @@
     <h2 class="text-pink-600 font-semibold leading-none">Latest Articles</h2>
     <ul class="mt-2">
       {#each latestArticles as article}
-        <a href="./articles/{article.slug}">{article.title}</a>
+        <li>
+          <a href="./articles/{article.slug}">{article.title}</a>
+        </li>
       {/each}
     </ul>
   </div>
