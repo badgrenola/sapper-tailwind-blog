@@ -1,12 +1,20 @@
 <script>
   import { projects } from '../stores/projectStore.js'
 
+  //Post basic details are loaded by the layout on startup and passed here
+  export let articles
+
   //Get the 5 latest projects
   let maxProjects = 5
   let latestProjects = $projects.sort((a, b) => {
     if (a.id > b.id) return 1
     return -1
   }).slice(Math.max($projects.length - maxProjects, 0))
+
+  //Get the 5 latest articles - articles are automatically sorted by date
+  let maxArticles = 5
+  let latestArticles = []
+  $: latestArticles = articles.slice(Math.max($projects.length - maxProjects, 0))
 
 </script>
 
@@ -16,13 +24,17 @@
     <ul class="mt-2">
       {#each latestProjects as project}
         <li>
-          <a href="./projects/{project.slug}" class="">{project.name}</a>
+          <a href="./projects/{project.slug}" >{project.name}</a>
         </li>
       {/each}
     </ul>
   </div>
   <div class="flex flex-col mt-8">
     <h2 class="text-pink-600 font-semibold leading-none">Latest Articles</h2>
-    <a href="#" class="mt-2">Hello Motivation</a>
+    <ul class="mt-2">
+      {#each latestArticles as article}
+        <a href="./articles/{article.slug}">{article.title}</a>
+      {/each}
+    </ul>
   </div>
 </sidebar>
