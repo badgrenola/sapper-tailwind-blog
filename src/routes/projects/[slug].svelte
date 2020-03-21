@@ -15,6 +15,7 @@
     $: nextProject = project && $projects.find(otherProject => otherProject.id == project.id + 1)
 </script>
 
+
 {#if project}
     <PageLayout>
         <span slot="title">{project.title}</span>
@@ -32,7 +33,7 @@
             <h2 class="mt-6 text-xl text-pink-600 font-light">What is it?</h2>
             <p class="mt-2">{project.desc}</p>
 
-            <!-- <h2 class="mt-6 text-xl text-pink-600 font-light">Features</h2>
+            <h2 class="mt-6 text-xl text-pink-600 font-light">Features</h2>
             <!-- https://tailwindgrids.com/#/ -->
             <div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-4">
                 {#each project.features as feature}
@@ -57,7 +58,7 @@
             
             <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
 
-            <div class="flex justify-between mt-6">
+            <div class="flex justify-between pt-6">
                 <div class="flex-1 pr-6">
                     {#if prevProject}
                         <h3 class="text-sm text-gray-600">Prev Project</h3>

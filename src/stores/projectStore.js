@@ -25,7 +25,8 @@ const projects = readable([
             "Ability to save an image of the current view, with a transparent background",
             "Ability to share a link to the current model + camera angle",
             "Realistic Martian lighting based upon location + a given time "
-        ]
+        ],
+        tagName: "areobrowser"
     },
     {
         id: 2, 
@@ -47,7 +48,8 @@ const projects = readable([
         ],
         todos:[
             "Full re-write"
-        ]
+        ],
+        tagName: "junoobserver"
     }
 ]);
 

@@ -12,6 +12,10 @@ html, body {
 }
 
 /* Extract link styles */
+a {
+    cursor: pointer;
+}
+
 a.colorLink {
     @apply text-pink-600;
 }
