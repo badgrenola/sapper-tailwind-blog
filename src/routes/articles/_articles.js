@@ -2,16 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
 
-export function getPosts () {
+export function getArticles () {
 	const slugs = fs.readdirSync('src/articles')
 		.filter(file => path.extname(file) === '.md')
 		.map(file => file.slice(0, -3));
-	return slugs.map(getPost).sort((a, b) => {
+	return slugs.map(getArticle).sort((a, b) => {
 		return a.metadata.pubdate < b.metadata.pubdate ? 1 : -1;
 	});
 }
 
-export function getPost(slug) {
+export function getArticle(slug) {
 	const file = `src/articles/${slug}.md`;
 	if (!fs.existsSync(file)) return null;
 

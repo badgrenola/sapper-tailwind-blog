@@ -1,16 +1,16 @@
-import { getPosts } from './_posts.js';
+import { getArticles } from './_articles.js';
 
 let contents;
 
 export function get(req, res) {
 	if (!contents || process.env.NODE_ENV !== 'production') {
-		const posts = getPosts().map(post => ({
-			title: post.metadata.title,
-			slug: post.slug,
-			image: post.metadata.image
+		const articles = getArticles().map(article => ({
+			title: article.metadata.title,
+			slug: article.slug,
+			image: article.metadata.image
 		}));
 
-		contents = JSON.stringify(posts);
+		contents = JSON.stringify(articles);
 	}
 
 	res.writeHead(200, {
