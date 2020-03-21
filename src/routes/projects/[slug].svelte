@@ -15,14 +15,19 @@
     $: nextProject = project && $projects.find(otherProject => otherProject.id == project.id + 1)
 </script>
 
+<svelte:head>
+    {#if project}
+        <title>{project.name} // Matt Brealey</title>
+    {/if}
+</svelte:head>
 
 {#if project}
     <PageLayout>
-        <span slot="title">{project.title}</span>
+        <span slot="title">{project.name}</span>
         <div slot="content">
 
             <a href="{project.links[0]}" target="_blank" rel="noopener noreferrer">
-                <img class="rounded-md object-cover" src={project.largeImage} alt={project.title} />
+                <img class="rounded-md object-cover" src={project.largeImage} alt={project.name} />
             </a>
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">Links</h2>

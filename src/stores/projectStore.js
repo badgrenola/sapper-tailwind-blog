@@ -4,7 +4,7 @@ const projects = readable([
     {
         id: 1,
         slug:"areo-browser",
-        title:"Areo Browser", 
+        name:"Areo Browser", 
         smallImage: "./testImage.jpg",
         largeImage : "./testImage.jpg",
         shortDesc:"Explore nearly 2000 3D models of Mars, using data from HiRISE & HRSC.",
@@ -31,7 +31,7 @@ const projects = readable([
     {
         id: 2, 
         slug:"juno-observer",
-        title:"Juno Observer", 
+        name:"Juno Observer", 
         smallImage: "./testImage.jpg",
         largeImage : "./testImage.jpg",
         shortDesc:"Explore imagery from NASA's Juno spacecraft, projected onto a 3D Jupiter.",

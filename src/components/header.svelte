@@ -7,12 +7,12 @@
     // TODO : svelte should declare these vars for us in the $: statement, but I'm getting undeclared errors
     let isIndex;
     let isProjects;
-    let isWriting;
+    let isArticles;
     $: {
         //Dynamically update the vars to match the current route
         isIndex = $page.path === "/"
         isProjects = $page.path === "/projects"
-        isWriting = $page.path === "/writing"
+        isArticles = $page.path === "/articles"
     }
 
     //Store the mobile menu open state
@@ -51,6 +51,6 @@
     <div class="px-2 pt-2 pb-4 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
         <a href="/" class="headerLink colorLink {isIndex && "headerLinkActive"}">Hello</a>
         <a href="/projects" id="projectsMenuItem" class="headerLink colorLink {isProjects && "headerLinkActive"}">Projects</a>
-        <a href="/writing" class="headerLink colorLink {isWriting && "headerLinkActive"}">Writing</a>
+        <a href="/articles" class="headerLink colorLink {isArticles && "headerLinkActive"}">Articles</a>
     </div>
 </header>

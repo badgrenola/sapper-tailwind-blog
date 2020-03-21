@@ -8,7 +8,7 @@
 </svelte:head>
 
 <PageLayout>
-	<h1 slot="title">Projects</h1>
+	<span slot="title">Projects</span>
 
 	<div slot="content">
 		<!-- https://tailwindgrids.com/#/ -->
@@ -19,9 +19,9 @@
 					<div class="group flex flex-col relative h-full cursor-pointer">
 						<a rel="prefetch" href="projects/{project.slug}" class="absolute w-full h-full z-10"> </a>
 						<div class="relative pb-2/3 rounded-md overflow-hidden opacity-75 group-hover:opacity-100 transition-opacity duration-100 ease-in-out">
-							<img class="absolute h-full w-full object-cover" src={project.smallImage} alt={project.title} />
+							<img class="absolute h-full w-full object-cover" src={project.smallImage} alt={project.name} />
 						</div>
-						<div class="font-semibold mt-1 text-gray-900 group-hover:text-pink-500">{project.title}</div>
+						<div class="font-semibold mt-1 text-gray-900 group-hover:text-pink-500">{project.name}</div>
 						<span class="text-sm text-gray-800">{project.shortDesc}</span>
 					</div>
 				</div>

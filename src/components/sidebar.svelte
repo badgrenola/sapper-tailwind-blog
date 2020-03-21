@@ -16,7 +16,7 @@
     <ul class="mt-2">
       {#each latestProjects as project}
         <li>
-          <a href="./projects/{project.slug}" class="">{project.title}</a>
+          <a href="./projects/{project.slug}" class="">{project.name}</a>
         </li>
       {/each}
     </ul>
