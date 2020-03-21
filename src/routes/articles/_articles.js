@@ -6,12 +6,12 @@ export function getArticles () {
 	const slugs = fs.readdirSync('src/articles')
 		.filter(file => path.extname(file) === '.md')
 		.map(file => file.slice(0, -3));
-	return slugs.map(getArticle).sort((a, b) => {
+	return slugs.map((slug) => { return getArticle(slug)}).sort((a, b) => {
 		return a.metadata.pubdate < b.metadata.pubdate ? 1 : -1;
 	});
 }
 
-export function getArticle(slug) {
+export function getArticle(slug, addPrevAndNext) {
 	const file = `src/articles/${slug}.md`;
 	if (!fs.existsSync(file)) return null;
 
@@ -24,10 +24,46 @@ export function getArticle(slug) {
 
 	const html = marked(content);
 
+	//If addPrevAndNext is true, get the basic info needed for the prev/next article
+	let prev = null
+	let next = null
+	if (addPrevAndNext == true) {
+
+		//Get the articles
+		const articles = getArticles()
+
+		//Get the index of the current article
+		let indexOfCurrent = null
+		articles.forEach((article, index) => {
+			const articlePubDate = new Date(`${article.metadata.pubdate} EDT`).toDateString()
+			if (articlePubDate === metadata.dateString) {
+				indexOfCurrent = index
+			}
+		})
+
+		//If there's a newer article, grab it
+		if (indexOfCurrent > 0) {
+			next = {
+				slug: articles[indexOfCurrent-1].slug,
+				title: articles[indexOfCurrent-1].metadata.title
+			}
+		}
+
+		//If there's an older article grab it
+		if (indexOfCurrent < articles.length - 1) {
+			prev = {
+				slug: articles[indexOfCurrent+1].slug,
+				title: articles[indexOfCurrent+1].metadata.title
+			}
+		}
+	}
+
 	return {
 		slug,
 		metadata,
-		html
+		html,
+		prev,
+		next
 	};
 }
 

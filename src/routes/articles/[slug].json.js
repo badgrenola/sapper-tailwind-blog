@@ -6,7 +6,7 @@ export function get(req, res, next) {
 	const { slug } = req.params;
 
 	if (process.env.NODE_ENV !== 'production' || !lookup.has(slug)) {
-		const article = getArticle(slug);
+		const article = getArticle(slug, true); //Pass true to lookup prev/next articles
 		lookup.set(slug, JSON.stringify(article));
 	}
 

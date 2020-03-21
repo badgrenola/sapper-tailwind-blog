@@ -63,10 +63,11 @@
             
             <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
 
-            <div class="flex justify-between pt-6">
+            <hr class="mt-12 w-full"/>
+		    <div class="flex justify-between pt-2">
                 <div class="flex-1 pr-6">
                     {#if prevProject}
-                        <h3 class="text-sm text-gray-600">Prev Project</h3>
+                        <h3 class="text-sm text-gray-600">Previous Project</h3>
                         <a href="./projects/{prevProject.slug}" class="colorLink">{prevProject.name}</a>
                     {/if}
                 </div>
