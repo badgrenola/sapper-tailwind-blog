@@ -155,7 +155,7 @@
       data.
     </p>
     <p class="pt-4">
-      I love making data more accessible, and getting it to flow between apps in occasionally odd but incredibly useful ways.
+      I love making data flow between applications in occasionally odd but incredibly useful ways, with my main focus being on image and 3D data. Increasing the accessibility of otherwise esoteric datasets is a big part of my work.
     </p>
     <p class="pt-4">
       You can check out some of my personal projects, or read some of my
@@ -170,7 +170,7 @@
         </span>
     </p>
     <p class="pt-4">
-      Or if you've got a specific project in mind,
+      Or if you have a specific project in mind,
       <a class="font-semibold colorLink" href="mailto:hello@mattbrealey.com">why not say hello?</a>
     </p>
   </span>

@@ -3,16 +3,19 @@
     import { stores } from '@sapper/app'
     import { projects } from '../../stores/projectStore.js'
 
-    //Get the project with the matching slug
+    // Get the project with the matching slug
     const { page } = stores()
     let slug = null
     let project = null
     $: slug = $page.params.slug
     $: project = slug && $projects.find(project => project.slug == slug)
 
-    // //Get the prev/next projects for display at the bottom of the page
+    // Get the prev/next projects for display at the bottom of the page
     $: prevProject = project && $projects.find(otherProject => otherProject.id == project.id - 1)
     $: nextProject = project && $projects.find(otherProject => otherProject.id == project.id + 1)
+
+    // TODO : Add related posts based upon article tags
+    let relatedPosts = []
 </script>
 
 <svelte:head>
@@ -63,7 +66,9 @@
                 </ul>
             {/if}
             
-            <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
+            {#if relatedPosts.length}
+                <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
+            {/if}
 
             <hr class="mt-12 w-full"/>
 		    <div class="flex justify-between pt-2">
