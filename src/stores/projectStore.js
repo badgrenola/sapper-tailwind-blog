@@ -2,7 +2,26 @@ import { readable } from 'svelte/store';
 
 const projects = readable([
     {
-        id: 1,
+        id: 1, 
+        slug:"juno-observer",
+        name:"Juno Observer", 
+        smallImage: "images/juno-observer/splash_small.jpeg",
+        largeImage : "images/juno-observer/splash_half.jpeg",
+        shortDesc:"Explore imagery from NASA's Juno spacecraft, projected onto a 3D Jupiter.",
+        links:["https://juno.observer"],
+        desc:"Junocam is an instrument onboard NASA's Juno spacecraft, which is currently orbiting Jupiter and sending back new imagery every month and a half as it reaches 'perijove' - it's closest point to the planet. I've written my own processing pipeline for this image data (which I'll soon be re-writing and documenting here), and Juno Observer is my way of displaying the results.<br /><br />It allows you to browse all of the available perijove data, projected onto a 3D representation of Jupiter, giving context to the imagery in a way that wasn't previously possible.<br /><br />The live app uses imagery from the original version of my processing pipeline, which has since <i>vastly</i> improved. I'm also currently about 75% of the way through a complete re-write of the app, which already contains a lot more features, thanks to the fact that is now uses the same base structure as <a class='colorLink' href='./projects/areo-browser'>AreoBrowser</a>.",
+        features: [
+            {title:"15 Perijoves of Data", desc:"This version of Juno Observer allows you to browse all of the images from the first 15 perijoves of Junocam data.", image:"images/juno-observer/perijoves_half.jpeg"},
+            {title:"Full Resolution", desc:"Images are projected at full resolution, meaning you can zoom ALL the way in to Jupiter's ludicrous storm features", image:"images/juno-observer/detail_half.jpeg"},
+            {title:"Fixed Rotation Mode", desc:"Toggle on 'Fixed Rotation' to lock Jupiter's rotation in place, making it easier to view subtle differences between exposures", image:"images/juno-observer/fixedRot_half.jpeg"}
+        ],
+        todos:[
+            "Finish the new pipeline, and finish the new version 🙂"
+        ],
+        tagName: "junoobserver"
+    },
+    {
+        id: 2,
         slug:"areo-browser",
         name:"Areo Browser", 
         smallImage: "./testImage.jpg",
@@ -20,36 +39,15 @@ const projects = readable([
             {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"}
         ],
         todos:[
-            "Model downloads at any resolution",
-            "3D-printable model downloads at any resolution",
+            "Model downloads",
+            "3D-printable model downloads",
             "Ability to save an image of the current view, with a transparent background",
             "Ability to share a link to the current model + camera angle",
-            "Realistic Martian lighting based upon location + a given time "
+            "Realistic lighting based upon location + a given time, using a full sun/sky model",
+            "WASD navigation",
+            "Basic fly-over/animation support"
         ],
         tagName: "areobrowser"
-    },
-    {
-        id: 2, 
-        slug:"juno-observer",
-        name:"Juno Observer", 
-        smallImage: "./testImage.jpg",
-        largeImage : "./testImage.jpg",
-        shortDesc:"Explore imagery from NASA's Juno spacecraft, projected onto a 3D Jupiter.",
-        links:["https://juno.observer"],
-        desc:"Juno Observer something something something something.",
-        features: [
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
-            {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"}
-        ],
-        todos:[
-            "Full re-write"
-        ],
-        tagName: "junoobserver"
     }
 ]);
 
