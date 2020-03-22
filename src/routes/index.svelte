@@ -155,7 +155,7 @@
       data.
     </p>
     <p class="pt-4">
-      I love making data flow between applications in occasionally odd but incredibly useful ways, with my main focus being on image and 3D data. Increasing the accessibility of otherwise esoteric datasets is a big part of my work.
+      I love making data flow between applications in occasionally odd but incredibly useful ways. Increasing the accessibility of otherwise esoteric datasets is a big part of my work, with my main focus being on image and 3D data.
     </p>
     <p class="pt-4">
       You can check out some of my personal projects, or read some of my
