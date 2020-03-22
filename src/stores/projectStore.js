@@ -1,4 +1,48 @@
 import { readable } from 'svelte/store';
+import marked from 'marked';
+
+const convertToDescHTML = (md) => {
+    let html = marked(md)
+    
+    //Add gaps between paras
+    html = html.replace(/<\/p>\n<p>/g, '</p>\n<p class="mt-6">')
+
+    //Add target/rel attributes to non-local links
+    html = html.replace(/<a (href="http\S+")/g, '<a $1 target="_blank" rel="noopener noreferrer"')
+
+    //Add colorLink class to all links
+    html = html.replace(/<a href/g, '<a class="colorLink" href')
+
+    return html
+}
+
+//Juno Observer Description Markdown 
+const joDescMD = `
+Junocam is an instrument onboard NASA's [Juno spacecraft](https://www.jpl.nasa.gov/missions/juno/), which is currently orbiting Jupiter and sending back new imagery every month
+and a half as it reaches 'perijove' - it's closest point to the planet. I've written my own processing pipeline for this [image data](https://www.missionjuno.swri.edu/junocam/processing)
+(which I'll soon be re-writing, open-sourcing, and documenting here), and Juno Observer is my way of displaying the results.
+
+It allows you to browse all of the available perijove data, projected onto a 3D representation of Jupiter, giving context to the imagery
+in a way that wasn't previously possible.
+
+The live app uses imagery from the original version of my processing pipeline, which has since vastly improved. I'm also currently about
+75% of the way through a complete re-write of the app, which already contains a lot more features, thanks to the fact that is now uses
+the same base structure as [AreoBrowser](./projects/areo-browser).
+`
+
+//Areo Browser Description Markdown 
+const abDescMD = `
+Junocam is an instrument onboard NASA's [Juno spacecraft](https://www.jpl.nasa.gov/missions/juno/), which is currently orbiting Jupiter and sending back new imagery every month
+and a half as it reaches 'perijove' - it's closest point to the planet. I've written my own processing pipeline for this [image data](https://www.missionjuno.swri.edu/junocam/processing)
+(which I'll soon be re-writing, open-sourcing, and documenting here), and Juno Observer is my way of displaying the results.
+
+It allows you to browse all of the available perijove data, projected onto a 3D representation of Jupiter, giving context to the imagery
+in a way that wasn't previously possible.
+
+The live app uses imagery from the original version of my processing pipeline, which has since vastly improved. I'm also currently about
+75% of the way through a complete re-write of the app, which already contains a lot more features, thanks to the fact that is now uses
+the same base structure as [AreoBrowser](./projects/areo-browser).
+`
 
 const projects = readable([
     {
@@ -9,14 +53,27 @@ const projects = readable([
         largeImage : "images/juno-observer/splash_half.jpeg",
         shortDesc:"Explore imagery from NASA's Juno spacecraft, projected onto a 3D Jupiter.",
         links:["https://juno.observer"],
-        desc:"Junocam is an instrument onboard NASA's Juno spacecraft, which is currently orbiting Jupiter and sending back new imagery every month and a half as it reaches 'perijove' - it's closest point to the planet. I've written my own processing pipeline for this image data (which I'll soon be re-writing and documenting here), and Juno Observer is my way of displaying the results.<br /><br />It allows you to browse all of the available perijove data, projected onto a 3D representation of Jupiter, giving context to the imagery in a way that wasn't previously possible.<br /><br />The live app uses imagery from the original version of my processing pipeline, which has since <i>vastly</i> improved. I'm also currently about 75% of the way through a complete re-write of the app, which already contains a lot more features, thanks to the fact that is now uses the same base structure as <a class='colorLink' href='./projects/areo-browser'>AreoBrowser</a>.",
+        desc:convertToDescHTML(joDescMD),
         features: [
-            {title:"15 Perijoves of Data", desc:"This version of Juno Observer allows you to browse all of the images from the first 15 perijoves of Junocam data.", image:"images/juno-observer/perijoves_half.jpeg"},
-            {title:"Full Resolution", desc:"Images are projected at full resolution, meaning you can zoom ALL the way in to Jupiter's ludicrous storm features", image:"images/juno-observer/detail_half.jpeg"},
-            {title:"Fixed Rotation Mode", desc:"Toggle on 'Fixed Rotation' to lock Jupiter's rotation in place, making it easier to view subtle differences between exposures", image:"images/juno-observer/fixedRot_half.jpeg"}
+            {
+                title:"15 Perijoves of Data", 
+                desc:"This version of Juno Observer allows you to browse all of the images from the first 15 perijoves of Junocam data.", 
+                image:"images/juno-observer/perijoves.jpg"
+            },
+            {
+                title:"Full Resolution", 
+                desc:"Images are projected at full resolution, meaning you can zoom ALL the way in to Jupiter's ludicrous storm features.", 
+                image:"images/juno-observer/detail.jpg"
+            },
+            {
+                title:"Fixed Rotation Mode", 
+                desc:"Toggle on 'Fixed Rotation' to lock Jupiter's rotation in place, making it easier to view subtle differences between exposures.", 
+                image:"images/juno-observer/fixedRot.jpg"
+            }
         ],
         todos:[
-            "Finish the new pipeline, and finish the new version 🙂"
+            "Finish the new pipeline",
+            "Finish the new version 🙂"
         ],
         tagName: "junoobserver"
     },
@@ -24,11 +81,11 @@ const projects = readable([
         id: 2,
         slug:"areo-browser",
         name:"Areo Browser", 
-        smallImage: "./testImage.jpg",
-        largeImage : "./testImage.jpg",
+        smallImage: "images/areo-browser/splash_small.jpeg",
+        largeImage : "images/areo-browser/splash_half.jpeg",
         shortDesc:"Explore nearly 2000 3D models of Mars, using data from HiRISE & HRSC.",
         links:["https://areobrowser.com"],
-        desc:"AreoBrowser allows you to easily search and explore all available HiRISE DTMs (Digital Terrain Models) in full 3D. Populated with models generated by Areo, you can alter level of detail, view the models in red/blue anaglyph, and even download the models directly for use in other 3D applications.",
+        desc:convertToDescHTML(abDescMD),
         features: [
             {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
             {title:"Feature", desc:"Description of feature", image:"./testImage.jpg"},
