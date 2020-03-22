@@ -39,7 +39,7 @@
             <ul>
             {#each project.links as link}
                 <li>
-                    <a href={link} target="_blank" rel="noopener noreferrer">{link.split("//")[1]}</a>
+                    {link.title} : <a class="pl-2 colorLink" href={link.url} target="_blank" rel="noopener noreferrer">{link.url.split("//")[1]}</a>
                 </li>
             {/each}
             </ul>
@@ -54,10 +54,17 @@
                     <div class="my-2 mb-4 px-2 w-full overflow-hidden sm:my-4 sm:px-4 sm:w-full md:w-1/2 xl:w-1/3">
                         <div class="flex flex-col relative h-full">
                             <div class="relative pb-2/3 rounded-md overflow-hidden">
-                                <img class="absolute h-full w-full object-cover" src={feature.image} alt={feature.desc} />
+                                {#if feature.image}
+                                    <img class="absolute h-full w-full object-cover" src={feature.image} alt={feature.desc} />
+                                {:else if feature.video}
+                                    <video autoplay loop class="absolute h-full w-full">
+                                        <source src={feature.video} type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                {/if}
                             </div>
                             <div class="font-semibold mt-1 text-gray-900 group-hover:text-pink-500">{feature.title}</div>
-                            <span class="text-sm text-gray-800">{feature.desc}</span>
+                            <span class="text-sm text-gray-800">{@html feature.desc}</span>
                         </div>
                     </div>
                 {/each}

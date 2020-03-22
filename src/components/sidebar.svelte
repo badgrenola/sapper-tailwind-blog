@@ -23,7 +23,7 @@
     <h2 class="text-pink-600 font-semibold leading-none">Latest Projects</h2>
     <ul class="mt-2">
       {#each latestProjects as project}
-        <li>
+        <li class="mb-1">
           <a href="./projects/{project.slug}" >{project.name}</a>
         </li>
       {/each}
@@ -33,7 +33,7 @@
     <h2 class="text-pink-600 font-semibold leading-none">Latest Articles</h2>
     <ul class="mt-2">
       {#each latestArticles as article}
-        <li>
+        <li class="mb-1">
           <a href="./articles/{article.slug}">{article.title}</a>
         </li>
       {/each}
