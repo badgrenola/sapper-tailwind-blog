@@ -7,8 +7,12 @@
     const { page } = stores()
     let slug = null
     let project = null
+    let headerString = "Matt Brealey"
     $: slug = $page.params.slug
     $: project = slug && $projects.find(project => project.slug == slug)
+
+    //Update the header string
+    $: headerString = project ? `${project.name} // Matt Brealey` : "Matt Brealey"
 
     // Get the prev/next projects for display at the bottom of the page
     $: prevProject = project && $projects.find(otherProject => otherProject.id == project.id - 1)
@@ -19,9 +23,7 @@
 </script>
 
 <svelte:head>
-    {#if project}
-        <title>{project.name} // Matt Brealey</title>
-    {/if}
+    <title>{headerString}</title>
 </svelte:head>
 
 {#if project}
@@ -39,7 +41,7 @@
             {/each}
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">What is it?</h2>
-            <p class="mt-2">{project.desc}</p>
+            <p class="mt-2">{@html project.desc}</p>
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">Features</h2>
             <!-- https://tailwindgrids.com/#/ -->
