@@ -36,9 +36,13 @@
             </a>
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">{project.links.length > 1 ? "Links" : "Link"}</h2>
+            <ul>
             {#each project.links as link}
-                <a href={link} target="_blank" rel="noopener noreferrer">{link.split("//")[1]}</a>
+                <li>
+                    <a href={link} target="_blank" rel="noopener noreferrer">{link.split("//")[1]}</a>
+                </li>
             {/each}
+            </ul>
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">What is it?</h2>
             <p class="mt-2">{@html project.desc}</p>
@@ -48,7 +52,7 @@
             <div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-4">
                 {#each project.features as feature}
                     <div class="my-2 mb-4 px-2 w-full overflow-hidden sm:my-4 sm:px-4 sm:w-full md:w-1/2 xl:w-1/3">
-                        <div class="flex flex-col relative h-full cursor-pointer">
+                        <div class="flex flex-col relative h-full">
                             <div class="relative pb-2/3 rounded-md overflow-hidden">
                                 <img class="absolute h-full w-full object-cover" src={feature.image} alt={feature.desc} />
                             </div>
