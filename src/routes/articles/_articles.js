@@ -5,6 +5,7 @@ import marked from 'marked';
 export function getArticles () {
 	const slugs = fs.readdirSync('src/articles')
 		.filter(file => path.extname(file) === '.md')
+		.filter(file => file[0] !== '_')
 		.map(file => file.slice(0, -3));
 	return slugs.map((slug) => { return getArticle(slug)}).sort((a, b) => {
 		return a.metadata.pubdate < b.metadata.pubdate ? 1 : -1;
