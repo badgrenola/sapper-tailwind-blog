@@ -1,5 +1,6 @@
 <script>
   import { projects } from '../stores/projectStore.js'
+  import Social from './social.svelte'
 
   //Post basic details are loaded by the layout on startup and passed here
   export let articles
@@ -38,5 +39,8 @@
         </li>
       {/each}
     </ul>
+  </div>
+  <div class="mt-16 -ml-1">
+    <Social />
   </div>
 </sidebar>

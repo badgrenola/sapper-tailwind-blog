@@ -1,5 +1,7 @@
 
 <script>
+    import Social from './social.svelte'
+
     //Grab the active route
     import { stores } from '@sapper/app'
     const { page } = stores()
@@ -49,9 +51,12 @@
             </button>
         </div>
     </div>
-    <div class="px-2 pt-2 pb-4 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
+    <div class="px-2 pt-2 {isOpen ? 'block' : 'hidden'} sm:flex sm:p-0">
         <a href="/" class="headerLink colorLink {isIndex && "headerLinkActive"}">Hello</a>
         <a href="/projects" id="projectsMenuItem" class="headerLink colorLink {isProjects && "headerLinkActive"}">Projects</a>
         <a href="/articles" class="headerLink colorLink {isArticles && "headerLinkActive"}">Articles</a>
+        <div class="headerLink h-16 sm:hidden">
+            <Social />
+        </div>
     </div>
 </header>

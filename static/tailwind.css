@@ -20,7 +20,7 @@ a.colorLink {
     @apply text-pink-600;
 }
 
-a.headerLink { 
+.headerLink {  /* Not specific to links as Social component uses it too */
     @apply block font-semibold text-center h-12 flex flex-col justify-center align-middle;
 }
 
