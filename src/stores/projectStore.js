@@ -50,10 +50,11 @@ the same base structure as [AreoBrowser](./projects/areo-browser).
 const abDescMD = `
 Areo Browser is a [React](https://reactjs.org/)/[ThreeJS](https://threejs.org/) web-app that allows you to explore nearly 2000 Martian terrain models, in full 3D, directly in your browser and on mobile. 
 It currently uses data from both the [HiRISE](https://www.uahirise.org/) camera (on-board NASA's [Mars Reconnaissance Orbiter](https://mars.nasa.gov/mro/)), and the [HRSC](https://www.esa.int/ESA_Multimedia/Images/2004/01/The_High_Resolution_Stereo_Camera_HRSC) (on-board ESA's [Mars Express](http://www.esa.int/Science_Exploration/Space_Science/Mars_Express)).
-This new version of Areo Browser is able to process and view all types of Martian 3D data, so if you'd like to talk about having your data included, [please just get in touch!](mailto:hello@mattbrealey.com)
 
 With options for mesh and image resolution, vertical exaggeration, and displaying a custom [Cividis](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199239) gradient with contour mapping on the model,
 Areo Browser vastly increases the accessibility of the included data.
+
+This new version of Areo Browser is able to process and view all types of Martian 3D data, so if you'd like to talk about having your data included, [please just get in touch!](mailto:hello@mattbrealey.com)
 
 Each available model consists of two parts - the mesh, and the associated image data.
 
