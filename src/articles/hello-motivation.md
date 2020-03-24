@@ -13,6 +13,6 @@ The other reason is that it's always been too tricky to simply share things. I'v
 
 Which brings me to _this_ post on _this_ new site. Written using [Sapper](https://sapper.svelte.dev/) and [TailwindCSS](https://tailwindcss.com/), and hosted for free on [Github Pages](https://pages.github.com/), it finally gives me a way to write the probably short, almost-certainly incredibly niche posts that have been swirling around in my brain for the last few years.
 
-Going forwards, my goal is to write more often (it's a low bar), open source as much code as possible, and try to become comfortable with not waiting until a project is _finished_ before sharing it.
+Going forwards, my goal is to write more often (it's a low bar), open source as much code as possible, and try to become more comfortable with not waiting until a project is _finished_ before sharing it.
 
 I think this site is a good start. I mean there's not even article tags yet... 😬

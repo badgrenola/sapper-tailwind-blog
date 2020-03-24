@@ -3,7 +3,7 @@
     <a href="https://sapper.svelte.dev/" target="_blank" rel="noopener noreferrer" class="colorLink">Sapper</a>
     and
     <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="colorLink">TailwindCSS</a>
-    , and is entirely
+    , and it's code is entirely
     <a href="https://github.com/badgrenola/matt-site" target="_blank" rel="noopener noreferrer" class="colorLink">open source</a>
     👍</p>
 </footer> 
