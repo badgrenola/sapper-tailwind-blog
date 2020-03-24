@@ -45,7 +45,7 @@
             </ul>
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">What is it?</h2>
-            <p class="mt-2">{@html project.desc}</p>
+            <p class="mt-2 markdown">{@html project.desc}</p>
 
             <h2 class="mt-6 text-xl text-pink-600 font-light">Features</h2>
             <!-- https://tailwindgrids.com/#/ -->

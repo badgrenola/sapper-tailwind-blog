@@ -8,9 +8,6 @@ renderer.link = (href, title, text) => {
     //Get the base html
     let html = linkRenderer.call(renderer, href, title, text)
 
-    //Add gaps between paras
-    html = html.replace(/<\/p>\n<p>/g, '</p>\n<p class="mt-6">')
-
     //Add target/rel attributes to non-local links
     html = html.replace(/<a (href="http\S+")/g, '<a $1 target="_blank" rel="noopener noreferrer"')
 
@@ -19,6 +16,18 @@ renderer.link = (href, title, text) => {
 
     return html
 };
+
+const paraRenderer = renderer.paragraph
+renderer.paragraph = (text) => {
+
+    //Get the base html
+    let html = paraRenderer.call(renderer, text)
+
+    //Add gaps between paras
+    html = html.replace(/<p>([\w\W]+?)<\/p>/gm, '<p class="mb-4">$1</p>')
+
+    return html
+}
 
 const toHTML = (markdown) => {
     return marked(markdown, { renderer })
