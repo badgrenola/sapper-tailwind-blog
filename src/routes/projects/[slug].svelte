@@ -9,7 +9,10 @@
     let project = null
     let headerString = "Matt Brealey"
     $: slug = $page.params.slug
-    $: project = slug && $projects.find(project => project.slug == slug)
+    $: {
+        project = slug && $projects.find(project => project.slug == slug)
+        if (slug && !project) { window.location.href = "./error" }
+    }
 
     //Update the header string
     $: headerString = project ? `${project.name} // Matt Brealey` : "Matt Brealey"
