@@ -18,7 +18,7 @@
 			{#each $projects as project}
 				<Card
 					desc={project.shortDesc}
-					link={`./projects/{project.slug}`}
+					link={`./projects/${project.slug}`}
 					smallImage={project.smallImage}
 					title={project.name}
 				/>

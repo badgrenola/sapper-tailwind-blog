@@ -27,7 +27,7 @@
 				<Card
 					date={article.date}
 					desc={article.desc}
-					link={`./articles/{article.slug}`}
+					link={`./articles/${article.slug}`}
 					smallImage={article.smallImage}
 					title={article.title}
 				/>
