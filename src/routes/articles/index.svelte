@@ -10,6 +10,7 @@
 
 <script>
 	import PageLayout from '../../components/pageLayout.svelte'
+	import Card from '../../components/card.svelte'
 	export let articles;
 </script>
 
@@ -23,17 +24,13 @@
 		<!-- https://tailwindgrids.com/#/ -->
 		<div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-4">
 			{#each articles as article}
-				<div class="my-2 mb-4 px-2 w-full overflow-hidden sm:my-4 sm:px-4 sm:w-full md:w-1/2 xl:w-1/3">
-					<div class="group flex flex-col relative h-full cursor-pointer">
-						<a rel="prefetch" href="./articles/{article.slug}" class="absolute w-full h-full z-10"> </a>
-						<div class="relative pb-2/3 rounded-md overflow-hidden group-hover:opacity-90 transition-opacity duration-100 ease-in-out">
-							<img class="absolute h-full w-full object-cover bg-gray-300" src={article.smallImage} alt={article.title} />
-						</div>
-						<div class="mt-2 font-light text-xs text-gray-500">{article.date}</div>
-						<div class="font-semibold text-gray-900 group-hover:text-pink-500">{article.title}</div>
-						<span class="text-sm text-gray-800">{article.desc}</span>
-					</div>
-				</div>
+				<Card
+					date={article.date}
+					desc={article.desc}
+					link={`./articles/{article.slug}`}
+					smallImage={article.smallImage}
+					title={article.title}
+				/>
 			{/each}
 		</div>
 	</div>
