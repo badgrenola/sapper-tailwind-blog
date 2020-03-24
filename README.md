@@ -10,7 +10,7 @@ The main goals were simple :
 
 Other than the ThreeJS/WebGL bit which I've yet to need/implement, the rest is now up and running. 
 
-Check out it running live here : [mattbrealey.com](http://mattbrealey.com)
+Check out it running live here : [mattbrealey.com](https://mattbrealey.com)
 
 On top of the above, I've added : 
 
@@ -21,7 +21,7 @@ Some of previous projects have used React, and whilst it's obviously __super__ c
 
 Refreshingly, the combo of Sapper and Tailwind has been a _absolute_ joy to work with. I had the basic bones of this entire site up and running in a few hours, including the routes and basic styles (I heartily recommend checking out [Adam Wathan's Youtube Channel](https://www.youtube.com/channel/UCy1H38XrN7hi7wHSClfXPqQ) to quickly get up to speed with Tailwind).
 
-And Svelte is just __LUDICROUSLY__ awesome. Simple, easy, and once I get my head around the fact that it's a _different_ way of approaching the bundle problem, it really did speed up the process.
+And Svelte is just __LUDICROUSLY__ awesome. Simple, easy, and once I got my head around the fact that it's a _different_ way of approaching the bundle problem, it really did speed up the process.
 
 ---
 

@@ -27,7 +27,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "publish": "npm run export && rsync --cvs-exclude --exclude '.git*' --delete-after -r __sapper__/export/ ../badgrenola.github.io"
+    "publish": "npm run export && rsync --cvs-exclude --exclude '.git*' --exclude 'README.md' --delete-after -r __sapper__/export/ ../badgrenola.github.io"
   },
   "dependencies": {
     "compression": "^1.7.1",
