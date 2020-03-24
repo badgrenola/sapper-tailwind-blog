@@ -1,6 +1,25 @@
-import fs from 'fs';
-import path from 'path';
-import marked from 'marked';
+import fs from 'fs'
+import path from 'path'
+import { toHTML } from '../../helpers/marked'
+
+// https://stackoverflow.com/a/15397495
+function getDateStringFromDate(date) {
+	const nth = function(d) {
+		console.log(d)
+		if (d > 3 && d < 21) return 'th'
+		switch (d % 10) {
+		  case 1:  return "st"
+		  case 2:  return "nd"
+		  case 3:  return "rd"
+		  default: return "th"
+		}
+	  }
+	  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()]
+	  
+	  const dateString = `${date.getDate()}${nth(date.getDate())} ${month} ${date.getFullYear()}`;
+	  console.log(dateString)
+	  return dateString
+}
 
 export function getArticles () {
 	const slugs = fs.readdirSync('src/articles')
@@ -20,10 +39,10 @@ export function getArticle(slug, addPrevAndNext) {
 
 	const { content, metadata } = process_markdown(markdown);
 
-	const date = new Date(`${metadata.pubdate} EDT`); // cheeky hack
-	metadata.dateString = date.toDateString();
+	const date = new Date(`${metadata.pubdate} GMT`);
+	metadata.date = getDateStringFromDate(date);
 
-	const html = marked(content);
+	const html = toHTML(content);
 
 	//If addPrevAndNext is true, get the basic info needed for the prev/next article
 	let prev = null

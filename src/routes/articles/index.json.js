@@ -8,7 +8,8 @@ export function get(req, res) {
 			title: article.metadata.title,
 			slug: article.slug,
 			smallImage: article.metadata.smallImage,
-			desc: article.metadata.desc
+			desc: article.metadata.desc,
+			date: article.metadata.date
 		}));
 
 		contents = JSON.stringify(articles);

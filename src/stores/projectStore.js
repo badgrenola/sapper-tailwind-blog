@@ -1,20 +1,5 @@
-import { readable } from 'svelte/store';
-import marked from 'marked';
-
-const convertToDescHTML = (md) => {
-    let html = marked(md)
-    
-    //Add gaps between h3s
-    html = html.replace(/<\/p>\n<p>/g, '</p>\n<p class="mt-6">')
-
-    //Add target/rel attributes to non-local links
-    html = html.replace(/<a (href="http\S+")/g, '<a $1 target="_blank" rel="noopener noreferrer"')
-
-    //Add colorLink class to all links
-    html = html.replace(/<a href/g, '<a class="colorLink" href')
-
-    return html
-}
+import { readable } from 'svelte/store'
+import { toHTML } from '../helpers/marked'
 
 //Areo Description Markdown
 const areoDescMD = `
@@ -80,7 +65,7 @@ const projects = readable([
                 url:"http://bit.ly/areo1b2"
             }
         ],
-        desc:convertToDescHTML(areoDescMD),
+        desc:toHTML(areoDescMD),
         features:[
             {
                 title:"Fast. Very Fast.", 
@@ -116,7 +101,7 @@ const projects = readable([
                 url:"https://juno.observer"
             }
         ],
-        desc:convertToDescHTML(joDescMD),
+        desc:toHTML(joDescMD),
         features: [
             {
                 title:"15 Perijoves of Data", 
@@ -153,7 +138,7 @@ const projects = readable([
                 url:"https://areobrowser.com"
             }
         ],
-        desc:convertToDescHTML(abDescMD),
+        desc:toHTML(abDescMD),
         features: [
             {
                 title:"Browse & Search Nearly 2000 Models", 

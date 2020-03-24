@@ -11,7 +11,6 @@
 <script>
 	import PageLayout from '../../components/pageLayout.svelte'
 	export let articles;
-	$: console.log(articles)
 </script>
 
 <svelte:head>
@@ -30,7 +29,8 @@
 						<div class="relative pb-2/3 rounded-md overflow-hidden group-hover:opacity-90 transition-opacity duration-100 ease-in-out">
 							<img class="absolute h-full w-full object-cover bg-gray-300" src={article.smallImage} alt={article.title} />
 						</div>
-						<div class="font-semibold mt-1 text-gray-900 group-hover:text-pink-500">{article.title}</div>
+						<div class="mt-2 font-light text-xs text-gray-500">{article.date}</div>
+						<div class="font-semibold text-gray-900 group-hover:text-pink-500">{article.title}</div>
 						<span class="text-sm text-gray-800">{article.desc}</span>
 					</div>
 				</div>

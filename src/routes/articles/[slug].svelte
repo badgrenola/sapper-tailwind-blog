@@ -16,7 +16,7 @@
 </script>
 
 <script>
-    import PageLayout from '../../components/pageLayout.svelte'
+    import ArticleLayout from '../../components/articleLayout.svelte'
 	export let article;
 </script>
 
@@ -24,10 +24,13 @@
 	<title>{article.metadata.title} // Matt Brealey</title>
 </svelte:head>
 
-<PageLayout>
+<ArticleLayout date={article.metadata.date}>
 	<span slot="title">{article.metadata.title}</span>
-	
     <section slot="content">
+
+		{#if article.largeImage}
+			<img class="rounded-md object-cover w-auto max-h-sm" src={article.metadata.largeImage} alt={article.metadata.title} />
+		{/if}
 
 		<span class="markdown">
 			{@html article.html}
@@ -52,4 +55,4 @@
 		{/if}
 
 	</section>
-</PageLayout>    
+</ArticleLayout>    
