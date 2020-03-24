@@ -1,111 +1,45 @@
-# sapper-template
+# Sapper + TailwindCSS = 👍
 
-The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
+This repo is my attempt at writing a new portfolio/blog site using [Sapper](https://sapper.svelte.dev/) and [TailwindCSS](https://tailwindcss.com/) - both of which were new to me at the start of the process!
 
+The main goals were simple : 
 
-## Getting started
+1. Allow for a brief description of what I do on the main page.
+2. Allow for a custom page for each of my bigger projects. This page should follow a set layout, but be flexible enough to allow for ThreeJS/WebGL content down the line.
+3. Have a simple Markdown based blog system.
 
+Other than the ThreeJS/WebGL bit which I've yet to need/implement, the rest is now up and running. 
 
-### Using `degit`
+Check out it running live here : [mattbrealey.com](mattbrealey.com)
 
-[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository. Use either the `rollup` or `webpack` branch in `sapper-template`:
+On top of the above, I've added : 
 
-```bash
-# for Rollup
-npx degit "sveltejs/sapper-template#rollup" my-app
-# for webpack
-npx degit "sveltejs/sapper-template#webpack" my-app
-```
+* Latest projects and articles sections to the side bar. These currently show the latest 5 of each.
+* Prev/Next Project/Article links at the bottom of each Project/Article.
 
+Some of previous projects have used React, and whilst it's obviously __super__ capable I've come to realise that its APIs don't match how I think about my code. In fact they've started to get in the way, slowing me down.
 
-### Using GitHub templates
+Refreshingly, the combo of Sapper and Tailwind has been a _absolute_ joy to work with. I had the basic bones of this entire site up and running in a few hours, including the routes and basic styles (I heartily recommend checking out [Adam Wathan's Youtube Channel](https://www.youtube.com/channel/UCy1H38XrN7hi7wHSClfXPqQ) to quickly get up to speed with Tailwind).
 
-Alternatively, you can use GitHub's template feature with the [sapper-template-rollup](https://github.com/sveltejs/sapper-template-rollup) or [sapper-template-webpack](https://github.com/sveltejs/sapper-template-webpack) repositories.
+And Svelte is just __LUDICROUSLY__ awesome. Simple, easy, and once I get my head around the fact that it's a _different_ way of approaching the bundle problem, it really did speed up the process.
 
+---
 
-### Running the project
+## Package Scripts
 
-However you get the code, you can install dependencies and run the project in development mode with:
+### Long story short 
+* For development : `npm run dev`
+* For building your static app bundle : `npm run export`
 
-```bash
-cd my-app
-npm install # or yarn
-npm run dev
-```
+### Hot Reloading
+I found that running two processes (one that watches for Tailwind updates, and one that builds sapper) gave me the quickest hot-reload results.
 
-Open up [localhost:3000](http://localhost:3000) and start clicking around.
+### Publish?
+The exported bundle is hosted on Github Pages in a [separate repo](https://github.com/badgrenola/badgrenola.github.io). 
 
-Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
+Triggering `npm run publish` exports the code, and then _rsyncs_ it to that repo's local folder so all I have to manually do is check it and then commit. Nothing too crazy, but it saves a bit of time.
 
+---
+I'll no doubt add more info here as and when I think of it, but in the meantime, if you've got any questions either leave an issue above or you can find me over on [Twitter](https://twitter.com/badgrenola)
 
-## Structure
-
-Sapper expects to find two directories in the root of your project —  `src` and `static`.
-
-
-### src
-
-The [src](src) directory contains the entry points for your app — `client.js`, `server.js` and (optionally) a `service-worker.js` — along with a `template.html` file and a `routes` directory.
-
-
-#### src/routes
-
-This is the heart of your Sapper app. There are two kinds of routes — *pages*, and *server routes*.
-
-**Pages** are Svelte components written in `.svelte` files. When a user first visits the application, they will be served a server-rendered version of the route in question, plus some JavaScript that 'hydrates' the page and initialises a client-side router. From that point forward, navigating to other pages is handled entirely on the client for a fast, app-like feel. (Sapper will preload and cache the code for these subsequent pages, so that navigation is instantaneous.)
-
-**Server routes** are modules written in `.js` files, that export functions corresponding to HTTP methods. Each function receives Express `request` and `response` objects as arguments, plus a `next` function. This is useful for creating a JSON API, for example.
-
-There are three simple rules for naming the files that define your routes:
-
-* A file called `src/routes/about.svelte` corresponds to the `/about` route. A file called `src/routes/blog/[slug].svelte` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to the route
-* The file `src/routes/index.svelte` (or `src/routes/index.js`) corresponds to the root of your app. `src/routes/about/index.svelte` is treated the same as `src/routes/about.svelte`.
-* Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `src/routes/_helpers/datetime.js` and it would *not* create a `/_helpers/datetime` route
-
-
-### static
-
-The [static](static) directory contains any static assets that should be available. These are served using [sirv](https://github.com/lukeed/sirv).
-
-In your [service-worker.js](src/service-worker.js) file, you can import these as `files` from the generated manifest...
-
-```js
-import { files } from '@sapper/service-worker';
-```
-
-...so that you can cache them (though you can choose not to, for example if you don't want to cache very large files).
-
-
-## Bundler config
-
-Sapper uses Rollup or webpack to provide code-splitting and dynamic imports, as well as compiling your Svelte components. With webpack, it also provides hot module reloading. As long as you don't do anything daft, you can edit the configuration files to add whatever plugins you'd like.
-
-
-## Production mode and deployment
-
-To start a production version of your app, run `npm run build && npm start`. This will disable live reloading, and activate the appropriate bundler plugins.
-
-You can deploy your application to any environment that supports Node 10 or above. As an example, to deploy to [ZEIT Now](https://zeit.co/now) when using `sapper export`, run these commands:
-
-```bash
-npm install -g now
-now
-```
-
-If your app can't be exported to a static site, you can use the [now-sapper](https://github.com/thgh/now-sapper) builder. You can find instructions on how to do so in its [README](https://github.com/thgh/now-sapper#basic-usage).
-
-
-## Using external components
-
-When using Svelte components installed from npm, such as [@sveltejs/svelte-virtual-list](https://github.com/sveltejs/svelte-virtual-list), Svelte needs the original component source (rather than any precompiled JavaScript that ships with the component). This allows the component to be rendered server-side, and also keeps your client-side app smaller.
-
-Because of that, it's essential that the bundler doesn't treat the package as an *external dependency*. You can either modify the `external` option under `server` in [rollup.config.js](rollup.config.js) or the `externals` option in [webpack.config.js](webpack.config.js), or simply install the package to `devDependencies` rather than `dependencies`, which will cause it to get bundled (and therefore compiled) with your app:
-
-```bash
-npm install -D @sveltejs/svelte-virtual-list
-```
-
-
-## Bugs and feedback
-
-Sapper is in early development, and may have the odd rough edge here and there. Please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
+Cheers!
