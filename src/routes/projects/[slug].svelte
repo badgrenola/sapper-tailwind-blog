@@ -1,22 +1,44 @@
+<script context="module">
+	export async function preload({ params, query }, session) {
+        // the `slug` parameter is available because
+        // this file is called [slug].html
+
+        //Define a function to find a project with given ID
+        const getProjectWithID = (id) => {
+            let projectKey = Object.keys(session.projects).find(projectKey => session.projects[projectKey].id == id)
+            if (projectKey) { return session.projects[projectKey] }
+            return null
+        }
+
+        //If the project exists
+        if (session.projects.hasOwnProperty(params.slug)) {
+            // Return the project along with the prev/next projects for display at the bottom of the page
+            const project = session.projects[params.slug]
+            return { 
+                project,
+                prevProject: getProjectWithID(project.id - 1),
+                nextProject: getProjectWithID(project.id + 1)
+            };
+        } else {
+            //404
+            this.error(404, `I haven't made a project called ${params.slug}. Yet...`);            
+        }
+    };
+
+</script>
+
+
 <script>
     import PageLayout from '../../components/pageLayout.svelte'
-    import { stores } from '@sapper/app'
-    import { projects } from '../../stores/projectStore.js'
 
     // Get the project with the matching slug
-    const { page } = stores()
-    let slug = null
-    let project = null
-    let headerString = "Matt Brealey"
-    $: slug = $page.params.slug
-    $: project = slug && $projects.find(project => project.slug == slug) 
+    export let project = null
+    export let prevProject = null;
+    export let nextProject = null;
 
     //Update the header string
+    let headerString = "Matt Brealey"
     $: headerString = project ? `${project.name} // Matt Brealey` : "Matt Brealey"
-
-    // Get the prev/next projects for display at the bottom of the page
-    $: prevProject = project && $projects.find(otherProject => otherProject.id == project.id - 1)
-    $: nextProject = project && $projects.find(otherProject => otherProject.id == project.id + 1)
 
     // TODO : Add related posts based upon article tags
     let relatedPosts = []

@@ -1,21 +1,23 @@
 <script>
-  import { projects } from '../stores/projectStore.js'
   import Social from './social.svelte'
 
+  //Projects are populated by the layout
+  export let projects = []
+
   //Post basic details are loaded by the layout on startup and passed here
-  export let articles
+  export let articles = []
 
   //Get the 5 latest projects
   let maxProjects = 5
-  let latestProjects = $projects.sort((a, b) => {
+  let latestProjects = projects.sort((a, b) => {
     if (a.id > b.id) return 1
     return -1
-  }).slice(Math.max($projects.length - maxProjects, 0)).reverse()
+  }).slice(Math.max(projects.length - maxProjects, 0)).reverse()
 
   //Get the 5 latest articles - articles are automatically sorted by date
   let maxArticles = 5
   let latestArticles = []
-  $: latestArticles = articles.slice(Math.max($projects.length - maxProjects, 0))
+  $: latestArticles = articles.slice(Math.max(projects.length - maxProjects, 0))
 
 </script>
 
