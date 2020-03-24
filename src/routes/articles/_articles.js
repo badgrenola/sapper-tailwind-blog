@@ -5,7 +5,6 @@ import { toHTML } from '../../helpers/marked'
 // https://stackoverflow.com/a/15397495
 function getDateStringFromDate(date) {
 	const nth = function(d) {
-		console.log(d)
 		if (d > 3 && d < 21) return 'th'
 		switch (d % 10) {
 		  case 1:  return "st"
@@ -17,7 +16,6 @@ function getDateStringFromDate(date) {
 	  const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()]
 	  
 	  const dateString = `${date.getDate()}${nth(date.getDate())} ${month} ${date.getFullYear()}`;
-	  console.log(dateString)
 	  return dateString
 }
 
