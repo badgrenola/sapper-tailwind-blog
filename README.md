@@ -10,7 +10,7 @@ The main goals were simple :
 
 Other than the ThreeJS/WebGL bit which I've yet to need/implement, the rest is now up and running. 
 
-Check out it running live here : [mattbrealey.com](mattbrealey.com)
+Check out it running live here : [mattbrealey.com](http://mattbrealey.com)
 
 On top of the above, I've added : 
 
