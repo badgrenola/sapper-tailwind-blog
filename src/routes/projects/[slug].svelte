@@ -55,7 +55,7 @@
 	<meta property="og:title" content="{project.name}">
 	<meta property="og:description" content="{project.shortDesc}">
 	{#if project.smallImage}
-	    <meta property="og:image" content="{project.smallImage}">
+	    <meta property="og:image" content="https://mattbrealey.com/{project.smallImage}">
 	{/if}
 
 	<!-- Twitter -->
@@ -64,7 +64,7 @@
 	<meta property="twitter:title" content="{project.name}">
 	<meta property="twitter:description" content="{project.shortDesc}">
 	{#if project.smallImage}
-	    <meta property="twitter:image" content="{project.smallImage}">
+	    <meta property="twitter:image" content="https://mattbrealey.com/{project.smallImage}">
 	{/if}
 </svelte:head>
 

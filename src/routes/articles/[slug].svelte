@@ -30,18 +30,14 @@
 	<meta property="og:url" content="https://mattbrealey.com/articles/{article.slug}">
 	<meta property="og:title" content="{article.metadata.title}">
 	<meta property="og:description" content="{article.metadata.desc}">
-	{#if article.smallImage}
-	    <meta property="og:image" content="{article.metadata.smallImage}">
-	{/if}
+	<meta property="og:image" content="https://mattbrealey.com/{article.metadata.smallImage}">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://mattbrealey.com/articles/{article.slug}">
 	<meta property="twitter:title" content="{article.metadata.title}">
 	<meta property="twitter:description" content="{article.metadata.desc}">
-	{#if article.smallImage}
-	    <meta property="twitter:image" content="{article.metadata.smallImage}">
-	{/if}
+	<meta property="twitter:image" content="https://mattbrealey.com/{article.metadata.smallImage}">
 </svelte:head>
 
 <ArticleLayout date={article.metadata.date}>

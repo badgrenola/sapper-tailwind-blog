@@ -8,14 +8,14 @@
   <meta property="og:url" content="https://mattbrealey.com">
   <meta property="og:title" content="Matt Brealey">
   <meta property="og:description" content="The portfolio site of a freelance creative problem solver.">
-  <meta property="og:image" content="./profile.jpg">
+  <meta property="og:image" content="https://mattbrealey.com/profile.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://mattbrealey.com">
   <meta property="twitter:title" content="Matt Brealey">
   <meta property="twitter:description" content="The portfolio site of a freelance creative problem solver.">
-  <meta property="twitter:image" content="./profile.jpg">
+  <meta property="twitter:image" content="https://mattbrealey.com/profile.jpg">
 </svelte:head>
 
 <svelte:window on:resize={() => {
