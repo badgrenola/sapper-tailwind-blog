@@ -23,6 +23,7 @@ const Areo = {
     smallImage: "images/areo/splash_small.jpg",
     largeImage : "images/areo/splash.jpg",
     shortDesc:"A Mac app designed for opening, viewing and converting Digital Terrain Models.",
+    keywords:"areo, space, hirise, mac, osx, swift, dtm, gis, terrain, digital terrain model, mars, planet, planetary data, data",
     links:[
         {
             title:"Download Beta 1 v2",

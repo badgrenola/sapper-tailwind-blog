@@ -27,6 +27,7 @@ const AreoBrowser = {
     smallImage: "images/areo-browser/splash_small.jpeg",
     largeImage : "images/areo-browser/splash_half.jpeg",
     shortDesc:"A web-app allowing you to explore nearly 2000 3D models of Mars, using data from HiRISE & HRSC.",
+    keywords:"areo, areo-browser, areo browser, areobrowser, space, hirise, hrsc, browser, react, reactjs, mobile, desktop, dtm, gis, terrain, digital terrain model, mars, planet, planetary data, data",
     links:[
         {
             title:"Website",

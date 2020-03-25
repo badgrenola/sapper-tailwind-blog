@@ -20,6 +20,7 @@ const JunoObserver = {
     smallImage: "images/juno-observer/splash_small.jpeg",
     largeImage : "images/juno-observer/splash_half.jpeg",
     shortDesc:"A web-app allowing you to explore Junocam imagery from NASA's Juno spacecraft, projected onto a 3D Jupiter.",
+    keywords:"juno, space, nasa, jupiter, browser, react, reactjs, mobile, desktop, planet, planetary data, data, spacecraft, orbit, perijove, mission juno",
     links:[
         {
             title:"Website",

@@ -1,6 +1,6 @@
 {
   "name": "sapper-tailwind-blog",
-  "description": "Code for personal portfolio/site written with SvelteJS/Sapper + TailwindCSS",
+  "description": "Code for my personal portfolio/site written with SvelteJS/Sapper + TailwindCSS",
   "version": "1.0.0",
   "repository": {
     "type": "git",
