@@ -46,6 +46,7 @@
 					link={`./articles/${article.slug}`}
 					smallImage={article.smallImage}
 					title={article.title}
+					timeToRead={article.timeToRead}
 				/>
 			{/each}
 		</div>

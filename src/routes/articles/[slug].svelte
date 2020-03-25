@@ -40,7 +40,7 @@
 	<meta property="twitter:image" content="https://mattbrealey.com/{article.metadata.smallImage}">
 </svelte:head>
 
-<ArticleLayout date={article.metadata.date}>
+<ArticleLayout date={article.metadata.date} timeToRead={article.metadata.timeToRead}>
 	<span slot="title">{article.metadata.title}</span>
     <section slot="content">
 

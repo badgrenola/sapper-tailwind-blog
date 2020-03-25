@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { toHTML } from '../../helpers/marked'
+import { getReadingTime } from '../../helpers/readingTime';
 
 // https://stackoverflow.com/a/15397495
 function getDateStringFromDate(date) {
@@ -75,6 +76,9 @@ export function getArticle(slug, addPrevAndNext) {
 			}
 		}
 	}
+
+	//Add reading time
+	metadata.timeToRead = getReadingTime(content)
 
 	return {
 		slug,
