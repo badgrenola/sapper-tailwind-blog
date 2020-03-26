@@ -76,7 +76,7 @@
             <img class="rounded-md object-cover" src={project.largeImage} alt={project.name} />
         </a>
 
-        <h2 class="mt-6 text-xl text-pink-600 font-light">{project.links.length > 1 ? "Links" : "Link"}</h2>
+        <h2 id="links" class="mt-6 text-xl text-pink-600 font-light">{project.links.length > 1 ? "Links" : "Link"}</h2>
         <ul>
         {#each project.links as link}
             <li>
@@ -85,10 +85,10 @@
         {/each}
         </ul>
 
-        <h2 class="mt-6 text-xl text-pink-600 font-light">What is it?</h2>
+        <h2 id="what-is-it" class="mt-6 text-xl text-pink-600 font-light">What is it?</h2>
         <p class="mt-2 markdown">{@html project.desc}</p>
 
-        <h2 class="mt-6 text-xl text-pink-600 font-light">Features</h2>
+        <h2 id="features" class="mt-6 text-xl text-pink-600 font-light">Features</h2>
         <!-- https://tailwindgrids.com/#/ -->
         <div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-4">
             {#each project.features as feature}
@@ -112,7 +112,7 @@
         </div>
 
         {#if project.todos.length}
-            <h2 class="mt-6 text-xl text-pink-600 font-light">Todo List</h2>
+            <h2 id="todo-list" class="mt-6 text-xl text-pink-600 font-light">Todo List</h2>
             <ul class="list-disc">
                 {#each project.todos as todo}
                     <li class="ml-6">{todo}</li>
@@ -121,7 +121,7 @@
         {/if}
         
         {#if relatedPosts.length}
-            <h2 class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
+            <h2 id="related-posts" class="mt-6 text-xl text-pink-600 font-light">Related Posts</h2>
         {/if}
 
         <hr class="mt-12 w-full"/>
