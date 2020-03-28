@@ -2,7 +2,7 @@ import { toHTML } from '../helpers/marked'
 
 //Geode Description Markdown
 const geodeDescMD = `
-Geode is a webapp prototype hat allows you to quickly and easily query the metadata stored inside any GeoTiff file simply by dragging the file into your browser.
+Geode is a web-app prototype that allows you to quickly and easily query the metadata stored inside any GeoTiff file simply by dragging the file into your browser.
 
 As part of my [AreoBrowser](./projects/areo-browser) pipeline work, I needed to figure out the structure of the GeoTiff format. In the spirit of trying to create smaller projects,
 share more code, and write a few _hopefully_ useful but no-doubt incredibly niche tools, I decided to spend a few hours over a few days to see if I could get
