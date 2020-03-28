@@ -72,7 +72,7 @@
     <span slot="title">{project.name}</span>
     <div slot="content">
 
-        <a href="{project.links[0]}" target="_blank" rel="noopener noreferrer">
+        <a href="{project.links[0].url}" target="_blank" rel="noopener noreferrer">
             <img class="rounded-md object-cover" src={project.largeImage} alt={project.name} />
         </a>
 
