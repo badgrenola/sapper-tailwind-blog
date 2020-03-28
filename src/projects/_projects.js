@@ -1,8 +1,9 @@
 import { Areo } from './Areo'
 import { AreoBrowser } from './AreoBrowser'
 import { JunoObserver } from './JunoObserver'
+import { Geode } from './Geode'
 
-const allProjects = [Areo, AreoBrowser, JunoObserver]
+const allProjects = [Areo, AreoBrowser, JunoObserver, Geode]
 
 function getProjectsObject() {
     let projects = {}
