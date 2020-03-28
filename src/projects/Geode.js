@@ -21,7 +21,7 @@ const Geode = {
     name:"Geode (prototype)", 
     smallImage: "images/geode/splash_small.jpg",
     largeImage : "images/geode/splash_half.jpg",
-    shortDesc:"A Mac app designed for opening, viewing and converting Digital Terrain Models.",
+    shortDesc:"A WIP web-app that allows you to preview GeoTiff metadata extremely quickly, directly in your browser.",
     keywords:"tiff, geotiff, dtm, gis, mapping, terrain, digital terrain model, planetary data, data",
     links:[
         {
