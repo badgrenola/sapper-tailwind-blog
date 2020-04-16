@@ -3,7 +3,7 @@ title: Reading Tiff Tags 🏷
 pubdate: 2020-04-15
 smallImage: images/articles/hello-motivation/desk.jpg
 desc: For my new tool, Geode, I needed to learn ALL about tiff tags. Turns out, there's a LOT of them...
-keywords: geode, tiff, code
+keywords: geode, tiff, code, geotiff, mapping, data, gis
 ---
 
 I'm currently in the process of adding several other formats to [Areo](/projects/areo), my _'take binary elevation data and make into exportable 3D mesh'_ tool, one of which is [Geotiff](https://earthdata.nasa.gov/esdis/eso/standards-and-references/geotiff). Instead of just figuring out how to read the format (boo, boring, boo), I thought I'd try and make an in-browser tool to read local tiff files, show 2D previews with custom colour mapping, and generate downloadable 3D mesh previews if applicable (hooray, 3D things, yay!) I also thought I'd briefly write it all up as I went. 👋
@@ -80,3 +80,5 @@ If this byte offset is > 0, you'll need to loop around and repeat all of your fi
 So ends this first, pretty dry article about Geode! Fun, eh? 😬 I'm hoping that the above might prove vaguely useful to anyone thinking about attempting something similar. And if not, it will at least remind me how I approached it, when I no-doubt find myself doing this again in a year or so!
 
 If you head over to [the app](https://mattbrealey.com/geode) right now, you'll be able to see the above in practice, as you can load any tiff file and browse of the available tag information for each IFD found.
+
+Next step, pixel loading!
