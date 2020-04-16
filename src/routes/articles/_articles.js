@@ -54,8 +54,10 @@ export function getArticle(slug, addPrevAndNext) {
 		//Get the index of the current article
 		let indexOfCurrent = null
 		articles.forEach((article, index) => {
-			const articlePubDate = new Date(`${article.metadata.pubdate} EDT`).toDateString()
-			if (articlePubDate === metadata.dateString) {
+			if (
+				article.metadata.pubdate === metadata.pubdate &&
+				article.metadata.title === metadata.title
+			) {
 				indexOfCurrent = index
 			}
 		})
