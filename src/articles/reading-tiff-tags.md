@@ -1,7 +1,7 @@
 ---
 title: Reading Tiff Tags 🏷
 pubdate: 2020-04-15
-smallImage: images/articles/hello-motivation/desk.jpg
+smallImage: images/articles/reading-tiff-tags/tags.png
 desc: For my new tool, Geode, I needed to learn ALL about tiff tags. Turns out, there's a LOT of them...
 keywords: geode, tiff, code, geotiff, mapping, data, gis
 ---
