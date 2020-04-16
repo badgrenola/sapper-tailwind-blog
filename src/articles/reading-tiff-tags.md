@@ -25,7 +25,7 @@ The first 2 bytes are either going to be both _4D_ (i.e. _77_ as a UInt8), or _4
 
 The 3rd or 4th byte (depending on your newly found byte order) is a [magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)). Long story short, if it's not __42__, then this _isn't_ a tiff file. Time to return/throw an error/walk away and grab lunch.
 
-The 8th byte is a byte offset telling you where the first main section of header information begins. Which leads me nicely into...
+The final 4 bytes, converted to a long (i.e. 4 byte, 32-bit unsigned int), gives us an offset to where the first main section of header information begins. Which leads me nicely into...
 
 ### IFDs, subfiles, image bands...
 
@@ -71,7 +71,7 @@ If _isOffset_ had resolved to _true_, we'd then have to perform a subsequent loo
 
 ### The next IFD...
 
-16 fields of 12 bytes later, there are 8 more useful bytes that make up this current IFD. Converted to a long (i.e. 4 byte, 32-bit unsigned int) these bytes give you the byte offset to the next IFD contained within the tiff file. 
+16 fields of 12 bytes later, there are 8 more useful bytes that make up this current IFD. Converted to a long these bytes give you the byte offset to the next IFD contained within the tiff file. 
 
 If this byte offset is > 0, you'll need to loop around and repeat all of your field parsing on this new IFD. If this is the final IFD in the file, the byte offset will be 0, and you can now relatively comfortably stop processing IFDs. Hooray!
 
@@ -79,6 +79,6 @@ If this byte offset is > 0, you'll need to loop around and repeat all of your fi
 
 So ends this first, pretty dry article about Geode! Fun, eh? 😬 I'm hoping that the above might prove vaguely useful to anyone thinking about attempting something similar. And if not, it will at least remind me how I approached it, when I no-doubt find myself doing this again in a year or so!
 
-If you head over to [the app](https://mattbrealey.com/geode) right now, you'll be able to see the above in practice, as you can load any tiff file and browse of the available tag information for each IFD found.
+If you head over to [the app](https://mattbrealey.com/geode) right now, you'll be able to see the above in practice, as you can load any tiff file and browse all of the available tag information for each IFD found.
 
 Next step, pixel loading!
