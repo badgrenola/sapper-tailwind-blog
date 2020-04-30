@@ -1,10 +1,10 @@
 {
-  "name": "sapper-tailwind-blog",
+  "name": "mattbrealeydotcom",
   "description": "Code for my personal portfolio/site written with SvelteJS/Sapper + TailwindCSS",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/badgrenola/sapper-tailwind-blog.git"
+    "url": "https://github.com/badgrenola/mattbrealeydotcom.git"
   },
   "keywords": [
     "svelte",
